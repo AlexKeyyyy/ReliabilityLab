@@ -1,0 +1,61 @@
+ВидЭлемента: КомпонентИнтерфейса
+Ид: c9f09d82-1678-4d8a-b8eb-2c1f0eb9ed7f
+Имя: ГлавнаяСтраница
+ОбластьВидимости: ВПодсистеме
+Наследует:
+  Тип: Форма
+  ВключатьВАвтоИнтерфейс: false
+  ПовторноеИспользованиеФормы: true
+  Заголовок: Overview
+  Содержимое:
+    Тип: ПроизвольныйШаблонФормы
+    Содержимое:
+      Тип: Группа
+      ШиринаВКолонках: Четверная
+      Компоновка: Бенто
+      Содержимое:
+      - Тип: СтандартнаяКарточка
+        Заголовок: ReliabilityLab • durable recovery
+        ШиринаВКолонках: Четверная
+        Содержимое: 'Receive → persist inbox → process → commit order → read result. Current implementation: strategy C. A/B and research
+          metrics are planned.'
+      - Тип: СтандартнаяКарточка
+        Заголовок: Operations
+        ШиринаВКолонках: Двойная
+        МинимальнаяВысота: 170
+        ОбрабатыватьНажатие: true
+        ПриНажатии: ОткрытьВходящиеОперации
+        Содержимое: One operation is one business intent. Repeated requests keep the same operation ID.
+      - Тип: СтандартнаяКарточка
+        Заголовок: Orders
+        ШиринаВКолонках: Двойная
+        МинимальнаяВысота: 170
+        ОбрабатыватьНажатие: true
+        ПриНажатии: ОткрытьЗаказы
+        Содержимое: 'Actual persisted business effects. Amounts are shown in kopecks: 150000 = RUB 1500.00.'
+      - Тип: СтандартнаяКарточка
+        Заголовок: Runs
+        ШиринаВКолонках: Двойная
+        МинимальнаяВысота: 170
+        ОбрабатыватьНажатие: true
+        ПриНажатии: ОткрытьПрогоны
+        Содержимое: An experiment groups operations under one immutable strategy and fault configuration.
+      - Тип: СтандартнаяКарточка
+        Заголовок: Attempts
+        ШиринаВКолонках: Двойная
+        МинимальнаяВысота: 170
+        ОбрабатыватьНажатие: true
+        ПриНажатии: ОткрытьПопыткиЗапросов
+        Содержимое: Each HTTP attempt has its own UUID. STARTED alone does not prove failure.
+      - Тип: СтандартнаяКарточка
+        Заголовок: Events
+        ШиринаВКолонках: Двойная
+        МинимальнаяВысота: 170
+        ОбрабатыватьНажатие: true
+        ПриНажатии: ОткрытьСобытияОпераций
+        Содержимое: Server history. Filter by operation ID to trace one operation across attempts.
+      - Тип: СтандартнаяКарточка
+        Заголовок: How to read the result
+        ШиринаВКолонках: Четверная
+        Содержимое: RECEIVED means the inbox is saved. COMPLETED means the order and canonical result were committed together. A lost
+          response means UNKNOWN to the caller; inspect the operation before retrying.
