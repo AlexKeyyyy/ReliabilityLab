@@ -17,7 +17,7 @@
       Тип: Группа
       Содержимое:
       - Тип: Надпись
-        Значение: One operation is one business intent. Repeated requests keep the same operation ID.
+        Значение: "One operation is one business intent. Repeated requests keep the same operation ID."
       - Тип: Таблица<ДинамическийСписок<alexkey::ReliabilityLab::Основное::ВходящиеОперацииФормаСписка.ДанныеСтрокиСписка>>
         Имя: ОсновнаяТаблица
         Источник: =Список

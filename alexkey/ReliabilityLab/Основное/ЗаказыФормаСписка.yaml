@@ -17,7 +17,7 @@
       Тип: Группа
       Содержимое:
       - Тип: Надпись
-        Значение: 'Actual persisted business effects. Amounts are shown in kopecks: 150000 = RUB 1500.00.'
+        Значение: "'Actual persisted business effects. Amounts are shown in kopecks: 150000 = RUB 1500.00.'"
       - Тип: Таблица<ДинамическийСписок<alexkey::ReliabilityLab::Основное::ЗаказыФормаСписка.ДанныеСтрокиСписка>>
         Имя: ОсновнаяТаблица
         Источник: =Список

@@ -17,7 +17,7 @@
       Тип: Группа
       Содержимое:
       - Тип: Надпись
-        Значение: Each HTTP attempt has its own UUID. STARTED alone does not prove failure.
+        Значение: "Each HTTP attempt has its own UUID. STARTED alone does not prove failure."
       - Тип: Таблица<ДинамическийСписок<alexkey::ReliabilityLab::Основное::ПопыткиЗапросовФормаСписка.ДанныеСтрокиСписка>>
         Имя: ОсновнаяТаблица
         Источник: =Список

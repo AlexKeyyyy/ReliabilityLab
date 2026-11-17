@@ -17,7 +17,7 @@
       Тип: Группа
       Содержимое:
       - Тип: Надпись
-        Значение: An experiment groups operations under one immutable strategy and fault configuration.
+        Значение: "An experiment groups operations under one immutable strategy and fault configuration."
       - Тип: Таблица<ДинамическийСписок<alexkey::ReliabilityLab::Основное::ПрогоныФормаСписка.ДанныеСтрокиСписка>>
         Имя: ОсновнаяТаблица
         Источник: =Список

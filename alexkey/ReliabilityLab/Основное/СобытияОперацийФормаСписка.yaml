@@ -17,7 +17,7 @@
       Тип: Группа
       Содержимое:
       - Тип: Надпись
-        Значение: Server history. Filter by operation ID to trace one operation across attempts.
+        Значение: "Server history. Filter by operation ID to trace one operation across attempts."
       - Тип: Таблица<ДинамическийСписок<alexkey::ReliabilityLab::Основное::СобытияОперацийФормаСписка.ДанныеСтрокиСписка>>
         Имя: ОсновнаяТаблица
         Источник: =Список
