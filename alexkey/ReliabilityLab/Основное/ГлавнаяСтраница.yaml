@@ -12,14 +12,17 @@
     Содержимое:
       Тип: Группа
       ШиринаВКолонках: Четверная
+      РастягиватьПоВертикали: Ложь
       Компоновка: Бенто
       Содержимое:
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: ReliabilityLab • durable recovery
         ШиринаВКолонках: Четверная
         Содержимое: 'Receive → persist inbox → process → commit order → read result. Current implementation: strategy C. A/B and research
           metrics are planned.'
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: Operations
         ШиринаВКолонках: Двойная
         МинимальнаяВысота: 170
@@ -27,6 +30,7 @@
         ПриНажатии: ОткрытьВходящиеОперации
         Содержимое: One operation is one business intent. Repeated requests keep the same operation ID.
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: Orders
         ШиринаВКолонках: Двойная
         МинимальнаяВысота: 170
@@ -34,6 +38,7 @@
         ПриНажатии: ОткрытьЗаказы
         Содержимое: 'Actual persisted business effects. Amounts are shown in kopecks: 150000 = RUB 1500.00.'
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: Runs
         ШиринаВКолонках: Двойная
         МинимальнаяВысота: 170
@@ -41,6 +46,7 @@
         ПриНажатии: ОткрытьПрогоны
         Содержимое: An experiment groups operations under one immutable strategy and fault configuration.
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: Attempts
         ШиринаВКолонках: Двойная
         МинимальнаяВысота: 170
@@ -48,6 +54,7 @@
         ПриНажатии: ОткрытьПопыткиЗапросов
         Содержимое: Each HTTP attempt has its own UUID. STARTED alone does not prove failure.
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: Events
         ШиринаВКолонках: Двойная
         МинимальнаяВысота: 170
@@ -55,6 +62,7 @@
         ПриНажатии: ОткрытьСобытияОпераций
         Содержимое: Server history. Filter by operation ID to trace one operation across attempts.
       - Тип: СтандартнаяКарточка
+        РастягиватьПоВертикали: Ложь
         Заголовок: How to read the result
         ШиринаВКолонках: Четверная
         Содержимое: RECEIVED means the inbox is saved. COMPLETED means the order and canonical result were committed together. A lost
