@@ -1,2 +1,22 @@
 /.theia
 /.vscode
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+# Browser sessions and generated local reports
+.auth/
+playwright/.auth/
+.test-data/
+playwright-report/
+test-results/
+
+# Local authenticated tooling/cache
+.local/
+build/

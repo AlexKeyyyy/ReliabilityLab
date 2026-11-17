@@ -1,0 +1,28 @@
+{
+  "repository": "https://github.com/korolevpavel/xbsl-ai-skills.git",
+  "ref": "master",
+  "commit": "73524afa62f93e925de8f1070cd8566778f22e26",
+  "release": "10.0.0.1",
+  "skills": [
+    "xbsl-access-set",
+    "xbsl-deploy",
+    "xbsl-explore",
+    "xbsl-file-add",
+    "xbsl-form-add",
+    "xbsl-form-cards",
+    "xbsl-form-dashboard",
+    "xbsl-form-info",
+    "xbsl-image-add",
+    "xbsl-init",
+    "xbsl-lib-connect",
+    "xbsl-meta-add",
+    "xbsl-pattern-register",
+    "xbsl-pattern-rls",
+    "xbsl-playwright",
+    "xbsl-rename",
+    "xbsl-scheduled-task",
+    "xbsl-subsystem-add",
+    "xbsl-uuid",
+    "xbsl-validate"
+  ]
+}
