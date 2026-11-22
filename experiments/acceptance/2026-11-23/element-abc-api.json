@@ -1,0 +1,2769 @@
+{
+  "date": "2026-11-23",
+  "scope": "Direct HTTPS Element acceptance using an existing application admin session",
+  "source_commit": "d5fbdc0",
+  "technology_version": "10.0.7-28",
+  "project_version": "1.0-13",
+  "assembly_id": "01a20595-4aa6-7722-a180-7d4923ed3426",
+  "update_task_id": "01a20595-5438-736a-9430-bdf235f7995c",
+  "run_ids": [
+    "check_9b1d8889a4d14b60",
+    "check_15e9dfc9fb184c72",
+    "check_6a4964edb224452b",
+    "check_dceb511a992a43de",
+    "check_461893b3049a471a",
+    "check_aded073e4d004ad8",
+    "check_3125e7ff4f024378"
+  ],
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "events": [
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 150.34,
+      "request": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "C",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 148.05,
+      "request": {
+        "run_id": "check_15e9dfc9fb184c72",
+        "strategy": "A",
+        "scenario": "drop_response_after_commit",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "drop_response_after_commit",
+        "expected_count": 100,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_15e9dfc9fb184c72",
+        "strategy": "A",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 187.53,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "order_id": "ORD_2b4ba3c8c3e9",
+        "attempt_id": "2f69d955-d606-4b1e-9b88-7a45b160188e",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:32.420Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_15e9dfc9fb184c72_342732e2e1c1/process",
+      "status": 200,
+      "elapsed_ms": 288.17,
+      "request": {
+        "attempt_id": "7a31caea-6792-4b0a-a431-19727930a5ae"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "attempt_id": "7a31caea-6792-4b0a-a431-19727930a5ae",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-ee0a-7315-bea3-0fb1f53328f2",
+          "order_id": "ORD_2b4ba3c8c3e9",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:32.682Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_15e9dfc9fb184c72_342732e2e1c1/retry",
+      "status": 200,
+      "elapsed_ms": 253.08,
+      "request": {
+        "attempt_id": "20c76830-b3cd-4d53-a87c-1132eb1398c6"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "attempt_id": "20c76830-b3cd-4d53-a87c-1132eb1398c6",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-ef1d-7c21-a405-55e8a32c9c1c",
+          "order_id": "ORD_2b4ba3c8c3e9",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:32.957Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_15e9dfc9fb184c72_342732e2e1c1/retry",
+      "status": 200,
+      "elapsed_ms": 120.79,
+      "request": {
+        "attempt_id": "20c76830-b3cd-4d53-a87c-1132eb1398c6"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "attempt_id": "20c76830-b3cd-4d53-a87c-1132eb1398c6",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-ef1d-7c21-a405-55e8a32c9c1c",
+          "order_id": "ORD_2b4ba3c8c3e9",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:32.957Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_15e9dfc9fb184c72_342732e2e1c1",
+      "status": 200,
+      "elapsed_ms": 133.57,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+        "run_id": "check_15e9dfc9fb184c72",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 2,
+        "orders": [
+          {
+            "order_ref": "01a20597-ee0a-7315-bea3-0fb1f53328f2",
+            "order_id": "ORD_2b4ba3c8c3e9",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:32.682Z"
+          },
+          {
+            "order_ref": "01a20597-ef1d-7c21-a405-55e8a32c9c1c",
+            "order_id": "ORD_2b4ba3c8c3e9",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:32.957Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:32.420Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 190.69,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_3bc2d29c1a65",
+        "run_id": "check_15e9dfc9fb184c72",
+        "order_id": "ORD_9115d9ad687f",
+        "attempt_id": "6bafe9d9-8cc8-4376-9e6f-3f59b7d38c5c",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_15e9dfc9fb184c72_3bc2d29c1a65",
+        "run_id": "check_15e9dfc9fb184c72",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:33.412Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/runs/check_15e9dfc9fb184c72/metrics",
+      "status": 200,
+      "elapsed_ms": 137.86,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "run_id": "check_15e9dfc9fb184c72",
+        "strategy": "A",
+        "scenario": "drop_response_after_commit",
+        "as_of": "2026-11-22T23:29:33.615Z",
+        "received": 2,
+        "completed": 1,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 1,
+        "duplicate_attempts": 1,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/runs/check_15e9dfc9fb184c72/operations",
+      "status": 200,
+      "elapsed_ms": 147.02,
+      "request": null,
+      "response": {
+        "run_id": "check_15e9dfc9fb184c72",
+        "operations": [
+          {
+            "operation_id": "check_15e9dfc9fb184c72_342732e2e1c1",
+            "order_id": "ORD_2b4ba3c8c3e9",
+            "server_state": "COMPLETED",
+            "received_at": "2026-11-22T23:29:32.420Z"
+          },
+          {
+            "operation_id": "check_15e9dfc9fb184c72_3bc2d29c1a65",
+            "order_id": "ORD_9115d9ad687f",
+            "server_state": "RECEIVED",
+            "received_at": "2026-11-22T23:29:33.412Z"
+          }
+        ],
+        "next_cursor": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 203.54,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_9d8d787aaba4",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_0cacbbf34ff3",
+        "attempt_id": "6f75de00-1e06-477e-b20d-ea5aa2b0b059",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_9d8d787aaba4",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:33.903Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 209.25,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_aab466a7175b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_1156aadb4267",
+        "attempt_id": "6379ac3f-e98b-45ae-9cd3-6255529b4aa8",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_aab466a7175b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:34.114Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_9d8d787aaba4/process",
+      "status": 200,
+      "elapsed_ms": 286.69,
+      "request": {
+        "attempt_id": "4db948f0-bf75-47f5-885a-07adbc090a0a"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_9d8d787aaba4",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "4db948f0-bf75-47f5-885a-07adbc090a0a",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-f4b0-7dca-8bdd-b04ea5114fdc",
+          "order_id": "ORD_0cacbbf34ff3",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:34.384Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_aab466a7175b/process",
+      "status": 409,
+      "elapsed_ms": 142.92,
+      "request": {
+        "attempt_id": "4db948f0-bf75-47f5-885a-07adbc090a0a"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "ATTEMPT_PAYLOAD_CONFLICT",
+          "message": "attempt_id already belongs to a different command",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_aab466a7175b",
+      "status": 200,
+      "elapsed_ms": 151.29,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_aab466a7175b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:34.114Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 220.19,
+      "request": {
+        "run_id": "check_6a4964edb224452b",
+        "strategy": "B",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_6a4964edb224452b",
+        "strategy": "B",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 195.67,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "order_id": "ORD_b800ab189906",
+        "attempt_id": "6779e925-0dee-44a4-81cd-c475343e2093",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:35.132Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_6a4964edb224452b_a72764346c3e",
+      "status": 200,
+      "elapsed_ms": 151.84,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:35.132Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_6a4964edb224452b_a72764346c3e/process",
+      "status": 200,
+      "elapsed_ms": 300.05,
+      "request": {
+        "attempt_id": "3894dd30-3d93-4d9a-afbf-c8273754f209"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "attempt_id": "3894dd30-3d93-4d9a-afbf-c8273754f209",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-f94d-7214-8a8b-db364f67426a",
+          "order_id": "ORD_b800ab189906",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:35.565Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_6a4964edb224452b_a72764346c3e/retry",
+      "status": 200,
+      "elapsed_ms": 265.26,
+      "request": {
+        "attempt_id": "88dccab3-ac36-4f32-962e-6d9688bcc314"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "attempt_id": "88dccab3-ac36-4f32-962e-6d9688bcc314",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-fa65-758e-a607-5942db729c36",
+          "order_id": "ORD_b800ab189906",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:35.845Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_6a4964edb224452b_a72764346c3e",
+      "status": 200,
+      "elapsed_ms": 138.82,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_6a4964edb224452b_a72764346c3e",
+        "run_id": "check_6a4964edb224452b",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 2,
+        "orders": [
+          {
+            "order_ref": "01a20597-f94d-7214-8a8b-db364f67426a",
+            "order_id": "ORD_b800ab189906",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:35.565Z"
+          },
+          {
+            "order_ref": "01a20597-fa65-758e-a607-5942db729c36",
+            "order_id": "ORD_b800ab189906",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:35.845Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:35.132Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 141.47,
+      "request": {
+        "run_id": "check_dceb511a992a43de",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_dceb511a992a43de",
+        "strategy": "C",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 186.26,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "order_id": "ORD_808d48e47c35",
+        "attempt_id": "8ebbcabf-0d7e-472c-b52f-cd51e4e2c0bb",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:36.323Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_dceb511a992a43de_9b50cb5f787d",
+      "status": 200,
+      "elapsed_ms": 245.99,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:36.323Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_dceb511a992a43de_9b50cb5f787d/process",
+      "status": 200,
+      "elapsed_ms": 273.01,
+      "request": {
+        "attempt_id": "6a09a8eb-e690-412c-b2c3-5ec7032905c0"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "attempt_id": "6a09a8eb-e690-412c-b2c3-5ec7032905c0",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20597-fe36-7815-ba4b-3e13a77365f0",
+          "order_id": "ORD_808d48e47c35",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:36.822Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_dceb511a992a43de_9b50cb5f787d/retry",
+      "status": 200,
+      "elapsed_ms": 239.07,
+      "request": {
+        "attempt_id": "c679f2c3-f48d-4ba7-bcdf-e969fe6a41c1"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "attempt_id": "c679f2c3-f48d-4ba7-bcdf-e969fe6a41c1",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20597-fe36-7815-ba4b-3e13a77365f0",
+          "order_id": "ORD_808d48e47c35",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:36.822Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_dceb511a992a43de_9b50cb5f787d",
+      "status": 200,
+      "elapsed_ms": 147.77,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_dceb511a992a43de_9b50cb5f787d",
+        "run_id": "check_dceb511a992a43de",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "REPLAYED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20597-fe36-7815-ba4b-3e13a77365f0",
+            "order_id": "ORD_808d48e47c35",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:36.822Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:36.323Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 150.71,
+      "request": {
+        "run_id": "check_461893b3049a471a",
+        "strategy": "B",
+        "scenario": "drop_response_after_commit",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "drop_response_after_commit",
+        "expected_count": 100,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_461893b3049a471a",
+        "strategy": "B",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 192.62,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_461893b3049a471a_3385d093ce65",
+        "run_id": "check_461893b3049a471a",
+        "order_id": "ORD_7e7fd2bfee45",
+        "attempt_id": "1aeef371-26d9-4172-b762-216d50d679d9",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_461893b3049a471a_3385d093ce65",
+        "run_id": "check_461893b3049a471a",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:37.583Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_461893b3049a471a_3385d093ce65/process",
+      "status": 200,
+      "elapsed_ms": 302.28,
+      "request": {
+        "attempt_id": "bd95e431-69cf-4bfb-8aa0-9f539b367f5f"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_461893b3049a471a_3385d093ce65",
+        "run_id": "check_461893b3049a471a",
+        "attempt_id": "bd95e431-69cf-4bfb-8aa0-9f539b367f5f",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-0228-71a8-99b1-8b364ffc9d8e",
+          "order_id": "ORD_7e7fd2bfee45",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:37.832Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_461893b3049a471a_3385d093ce65",
+      "status": 200,
+      "elapsed_ms": 189.72,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_461893b3049a471a_3385d093ce65",
+        "run_id": "check_461893b3049a471a",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-0228-71a8-99b1-8b364ffc9d8e",
+            "order_id": "ORD_7e7fd2bfee45",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:37.832Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:37.583Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 278.0,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_299a34e2fe2e",
+        "attempt_id": "0dbe395d-fbe7-423c-829e-ddfa8067bd2a",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:38.375Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 740.21,
+      "request": {
+        "attempt_id": "1f4af4e9-bc51-4af4-937c-8ba4850d838d"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "1f4af4e9-bc51-4af4-937c-8ba4850d838d",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 789.94,
+      "request": {
+        "attempt_id": "977d4a49-e813-4f38-9cf9-be69ce74e472"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "977d4a49-e813-4f38-9cf9-be69ce74e472",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 994.65,
+      "request": {
+        "attempt_id": "bb9d8f86-1a0e-499a-9e6d-19168f49810e"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "bb9d8f86-1a0e-499a-9e6d-19168f49810e",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 1039.41,
+      "request": {
+        "attempt_id": "89a62305-27a2-400b-9026-33879d3dbab3"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "89a62305-27a2-400b-9026-33879d3dbab3",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 1102.01,
+      "request": {
+        "attempt_id": "79e98324-28a8-469e-9dd9-3973d421b898"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "79e98324-28a8-469e-9dd9-3973d421b898",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 1160.78,
+      "request": {
+        "attempt_id": "f01f74d6-752d-4930-97ab-1323baaee697"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "f01f74d6-752d-4930-97ab-1323baaee697",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 1210.99,
+      "request": {
+        "attempt_id": "83ef6d1e-072f-4b72-b6c0-622702fcbd7f"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "83ef6d1e-072f-4b72-b6c0-622702fcbd7f",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/process",
+      "status": 200,
+      "elapsed_ms": 1264.91,
+      "request": {
+        "attempt_id": "71ee93c9-0bec-4b78-be9b-ab9ea6db68cb"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "71ee93c9-0bec-4b78-be9b-ab9ea6db68cb",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329/retry",
+      "status": 200,
+      "elapsed_ms": 247.79,
+      "request": {
+        "attempt_id": "f254d540-0194-4858-aeaa-1a1c547854a5"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "f254d540-0194-4858-aeaa-1a1c547854a5",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+          "order_id": "ORD_299a34e2fe2e",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:39.121Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_4a04378bc329",
+      "status": 200,
+      "elapsed_ms": 131.3,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4a04378bc329",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "REPLAYED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-0732-7703-bc24-78320c38b9a6",
+            "order_id": "ORD_299a34e2fe2e",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:39.121Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:38.375Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 363.7,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "21cea8a0-e7d9-47a1-bddd-ac0be44f98a3",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 417.69,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "6a950c9d-63a3-496b-b196-a1b4ce6b463d",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 498.87,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "39f2a78d-7ebd-4741-b331-1f5e1a3b9b8a",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 563.36,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "1488b85d-e865-4581-b0a9-6e3fa73d9f66",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 621.55,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "dd1b5d9a-86a8-49d0-b4d4-5c5696d3ddf5",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 675.94,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_197905e09920",
+        "attempt_id": "59bd32ae-493c-44ec-9576-2adf4627622e",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:40.414Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_ca4d4fbfd794",
+      "status": 200,
+      "elapsed_ms": 145.0,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_ca4d4fbfd794",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:40.414Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 187.85,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_e7291445aec9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_bac393c7cd10",
+        "attempt_id": "47fee2c9-a9be-4d9d-b1eb-47686f21b308",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_e7291445aec9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:41.051Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_e7291445aec9/process",
+      "status": 200,
+      "elapsed_ms": 310.84,
+      "request": {
+        "attempt_id": "ec3e731b-3450-4d82-8ec1-9687e0ad3127"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_e7291445aec9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "ec3e731b-3450-4d82-8ec1-9687e0ad3127",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-0fdc-7e6e-b5f2-a80b5b7caafe",
+          "order_id": "ORD_bac393c7cd10",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:41.340Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_e7291445aec9/retry",
+      "status": 200,
+      "elapsed_ms": 266.39,
+      "request": {
+        "attempt_id": "5e36cf21-d899-45d6-b082-28e55a358440"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_e7291445aec9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "5e36cf21-d899-45d6-b082-28e55a358440",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-0fdc-7e6e-b5f2-a80b5b7caafe",
+          "order_id": "ORD_bac393c7cd10",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:41.340Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_e7291445aec9",
+      "status": 200,
+      "elapsed_ms": 151.77,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_e7291445aec9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "REPLAYED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-0fdc-7e6e-b5f2-a80b5b7caafe",
+            "order_id": "ORD_bac393c7cd10",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:41.340Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:41.051Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 112.33,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_1d68f83e98fd",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_65aa2af91186",
+        "attempt_id": "c6e40b5b-62d6-48b3-8f0d-fc057ad6d586",
+        "amount_minor": 0,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "amount_minor must be a positive integer of at most 12 digits",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 105.25,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_bd7da9fbeca4",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_28a97af662ff",
+        "attempt_id": "abc03b98-9e03-4681-9ff7-111efc37b95b",
+        "amount_minor": 1.5,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "amount_minor must be a positive integer of at most 12 digits",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 104.91,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_b6623fc0dfca",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_d3e1ef249cce",
+        "attempt_id": "9f28643f-517b-45c6-b0a7-d24a71380c36",
+        "amount_minor": "100",
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "INVALID_JSON",
+          "message": "Invalid JSON shape or field types",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 103.88,
+      "request": {
+        "schema_version": 2,
+        "operation_id": "check_9b1d8889a4d14b60_b93487b63117",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_117c1d304d03",
+        "attempt_id": "f954b5db-ef47-41ec-bdf4-987f1fc99669",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "Unsupported schema_version",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 104.48,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_7f9325145b39",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_60d40473f857",
+        "attempt_id": "f188bf06-a68c-4dd2-878d-c7329a96541b",
+        "amount_minor": 150000,
+        "currency": "USD",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "Only synthetic RUB orders are supported",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 103.49,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "../escape",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_0aec38cbd955",
+        "attempt_id": "a16172b6-0dcb-434f-97b3-ccc83997e4fe",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "Expected an ASCII identifier of 1-96 characters",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 127.35,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_2647b7b2aefe",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_7c250297a35d",
+        "attempt_id": "cdacd15f-361f-4cf5-b253-d9f5009ff943",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-99-99T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "Invalid timestamp or field format",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 101.07,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_b40af38979c9",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_573b20092424",
+        "attempt_id": "not-uuid",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "attempt_id must be a lowercase UUID v4",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 95.96,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_104de281ee1d",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_4c1a52826089",
+        "attempt_id": "01bf0d99-10b6-42a9-ab0d-2813bc776afd",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z",
+        "unexpected": true
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "INVALID_JSON",
+          "message": "Invalid JSON shape or field types",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 400,
+      "elapsed_ms": 96.37,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_00585fe1eb75",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_8c00213b80d9",
+        "attempt_id": "cd320bda-1afb-4983-b797-a6674dce3e2a",
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "INVALID_JSON",
+          "message": "Invalid JSON shape or field types",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 238.1,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+        "attempt_id": "8e7b9af5-9640-4e1a-9543-646e1c0af430",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:43.096Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388/process",
+      "status": 200,
+      "elapsed_ms": 270.08,
+      "request": {
+        "attempt_id": "e3ac9b37-c6fb-44c6-9a64-0ef155a4b05f"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "e3ac9b37-c6fb-44c6-9a64-0ef155a4b05f",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-17ad-7fff-99c8-6fe597d55d21",
+          "order_id": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:43.341Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388",
+      "status": 200,
+      "elapsed_ms": 140.92,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388bc55bcda907541938c6f04f727a2e388",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-17ad-7fff-99c8-6fe597d55d21",
+            "order_id": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:43.341Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:43.096Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 213.91,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_66960dc9b79b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_8a2d9280a6e2",
+        "attempt_id": "b9a1b534-d331-4b51-ae60-771adf9b7b3b",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_66960dc9b79b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:43.735Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_66960dc9b79b/process",
+      "status": 200,
+      "elapsed_ms": 285.99,
+      "request": {
+        "attempt_id": "27dd0082-3692-481f-b371-bd6c9486cfe8"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_66960dc9b79b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "27dd0082-3692-481f-b371-bd6c9486cfe8",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-1a32-795e-8c07-771a62d536fc",
+          "order_id": "ORD_8a2d9280a6e2",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:43.986Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_66960dc9b79b/retry",
+      "status": 200,
+      "elapsed_ms": 274.97,
+      "request": {
+        "attempt_id": "840cca50-476d-4281-9f54-349464c57c92"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_66960dc9b79b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "840cca50-476d-4281-9f54-349464c57c92",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": true,
+        "result": {
+          "order_ref": "01a20598-1a32-795e-8c07-771a62d536fc",
+          "order_id": "ORD_8a2d9280a6e2",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:43.986Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_66960dc9b79b",
+      "status": 200,
+      "elapsed_ms": 194.97,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_66960dc9b79b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "REPLAYED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-1a32-795e-8c07-771a62d536fc",
+            "order_id": "ORD_8a2d9280a6e2",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:43.986Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:43.735Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 457.91,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_06b6500716b1",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_8c242178300e",
+        "attempt_id": "a5a85746-2f87-4b43-9fe8-41486581b6e0",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_06b6500716b1",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:44.962Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_06b6500716b1",
+      "status": 200,
+      "elapsed_ms": 176.44,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_06b6500716b1",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:44.962Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 236.47,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_53514e249292",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_c00f190696e6",
+        "attempt_id": "d868c4d5-6e25-4253-b446-ab6fea6191c0",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_53514e249292",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:45.388Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 171.15,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_53514e249292",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_c00f190696e6",
+        "attempt_id": "2244cdb0-aee3-4f3d-8485-cb105a73f7ea",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_53514e249292",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:45.388Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 409,
+      "elapsed_ms": 122.91,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_53514e249292",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_c00f190696e6",
+        "attempt_id": "e6e0ea09-92eb-4ce7-bb0b-aebfd5c3870a",
+        "amount_minor": 999,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "OPERATION_PAYLOAD_CONFLICT",
+          "message": "Operation payload differs from the stored payload",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 201,
+      "elapsed_ms": 147.8,
+      "request": {
+        "run_id": "check_aded073e4d004ad8",
+        "strategy": "C",
+        "scenario": "fail_before_commit",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "fail_before_commit",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_aded073e4d004ad8",
+        "strategy": "C",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 321.09,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "run_id": "check_aded073e4d004ad8",
+        "order_id": "ORD_984e8bb2f5f0",
+        "attempt_id": "66fe3e93-8a16-4e1a-8c48-cb771c590eb3",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "run_id": "check_aded073e4d004ad8",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:46.155Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_aded073e4d004ad8_e28626460124/process",
+      "status": 500,
+      "elapsed_ms": 328.87,
+      "request": {
+        "attempt_id": "93e5cc72-7351-40ae-a5f2-10113b95b6e8"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "INJECTED_BEFORE_COMMIT",
+          "message": "The injected attempt was rolled back; retry with a new attempt_id",
+          "retryable": true
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_aded073e4d004ad8_e28626460124",
+      "status": 200,
+      "elapsed_ms": 130.59,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "run_id": "check_aded073e4d004ad8",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "FAILED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:46.155Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_aded073e4d004ad8_e28626460124/retry",
+      "status": 200,
+      "elapsed_ms": 282.42,
+      "request": {
+        "attempt_id": "e28b03aa-8d00-4fef-a0ce-95cda4d400ba"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "run_id": "check_aded073e4d004ad8",
+        "attempt_id": "e28b03aa-8d00-4fef-a0ce-95cda4d400ba",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-2581-7f13-bc77-b5f17305a30c",
+          "order_id": "ORD_984e8bb2f5f0",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:46.881Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_aded073e4d004ad8_e28626460124",
+      "status": 200,
+      "elapsed_ms": 144.6,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "run_id": "check_aded073e4d004ad8",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2581-7f13-bc77-b5f17305a30c",
+            "order_id": "ORD_984e8bb2f5f0",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:46.881Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:46.155Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_aded073e4d004ad8_e28626460124/events",
+      "status": 200,
+      "elapsed_ms": 139.52,
+      "request": null,
+      "response": {
+        "operation_id": "check_aded073e4d004ad8_e28626460124",
+        "events": [
+          {
+            "event_id": "314a31bc-feb1-4177-89f2-bad11d99e29c",
+            "attempt_id": "e28b03aa-8d00-4fef-a0ce-95cda4d400ba",
+            "event_type": "PROCESS_STARTED",
+            "source": "ELEMENT",
+            "occurred_at": "2026-11-22T23:29:46.836Z"
+          },
+          {
+            "event_id": "644b6d81-12e1-4bab-80c0-d2751c2b04a0",
+            "attempt_id": "66fe3e93-8a16-4e1a-8c48-cb771c590eb3",
+            "event_type": "PERSISTED",
+            "source": "ELEMENT",
+            "occurred_at": "2026-11-22T23:29:46.173Z"
+          },
+          {
+            "event_id": "858295a0-ed8b-4cb8-86fd-4b733d689b03",
+            "attempt_id": "e28b03aa-8d00-4fef-a0ce-95cda4d400ba",
+            "event_type": "BUSINESS_COMMITTED",
+            "source": "ELEMENT",
+            "occurred_at": "2026-11-22T23:29:46.923Z"
+          },
+          {
+            "event_id": "9187ab3a-7b5e-4bb1-90a1-7f9670de61a1",
+            "attempt_id": "93e5cc72-7351-40ae-a5f2-10113b95b6e8",
+            "event_type": "ROLLED_BACK",
+            "source": "ELEMENT",
+            "occurred_at": "2026-11-22T23:29:46.529Z"
+          },
+          {
+            "event_id": "f5e2ea2f-a7e1-4e0f-a66e-65c73cc575d6",
+            "attempt_id": "93e5cc72-7351-40ae-a5f2-10113b95b6e8",
+            "event_type": "PROCESS_STARTED",
+            "source": "ELEMENT",
+            "occurred_at": "2026-11-22T23:29:46.415Z"
+          }
+        ],
+        "next_cursor": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 200,
+      "elapsed_ms": 136.93,
+      "request": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "C",
+        "replayed": true
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 409,
+      "elapsed_ms": 132.76,
+      "request": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 999,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "RUN_CONFIG_CONFLICT",
+          "message": "Run configuration is immutable",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 259.12,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_945059dee50b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_941802549194",
+        "attempt_id": "1ce00a84-30ba-4462-bfde-a462844aebce",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_945059dee50b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:47.726Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_945059dee50b/process",
+      "status": 200,
+      "elapsed_ms": 298.72,
+      "request": {
+        "attempt_id": "b32f33bd-f8e3-46e0-b615-c1154157e5b0"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_945059dee50b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "b32f33bd-f8e3-46e0-b615-c1154157e5b0",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-29f0-72e7-aeba-93cd7774d0f5",
+          "order_id": "ORD_941802549194",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:48.016Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_945059dee50b/process",
+      "status": 200,
+      "elapsed_ms": 131.64,
+      "request": {
+        "attempt_id": "b32f33bd-f8e3-46e0-b615-c1154157e5b0"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_945059dee50b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "b32f33bd-f8e3-46e0-b615-c1154157e5b0",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-29f0-72e7-aeba-93cd7774d0f5",
+          "order_id": "ORD_941802549194",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:48.016Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_945059dee50b/retry",
+      "status": 409,
+      "elapsed_ms": 121.57,
+      "request": {
+        "attempt_id": "b32f33bd-f8e3-46e0-b615-c1154157e5b0"
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "ATTEMPT_PAYLOAD_CONFLICT",
+          "message": "attempt_id already belongs to a different command",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_945059dee50b",
+      "status": 200,
+      "elapsed_ms": 170.03,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_945059dee50b",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-29f0-72e7-aeba-93cd7774d0f5",
+            "order_id": "ORD_941802549194",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:48.016Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:47.726Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 185.44,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_97cc50cc27b8",
+        "attempt_id": "00cce45a-067c-41f7-bd3c-732dadcd4884",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:48.655Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 308.36,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 317.95,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 328.72,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 333.23,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 335.6,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 338.62,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 340.47,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 0,
+        "orders": [],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102/process",
+      "status": 200,
+      "elapsed_ms": 571.01,
+      "request": {
+        "attempt_id": "afde5543-5d90-4cd1-8b00-1f87d73057aa"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "attempt_id": "afde5543-5d90-4cd1-8b00-1f87d73057aa",
+        "server_state": "COMPLETED",
+        "durable_stage": "BUSINESS_COMMITTED",
+        "replayed": false,
+        "result": {
+          "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+          "order_id": "ORD_97cc50cc27b8",
+          "amount_minor": 150000,
+          "currency": "RUB",
+          "completed_at": "2026-11-22T23:29:49.153Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 250.17,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 250.27,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 271.17,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 256.77,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 250.09,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 247.43,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 285.45,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 135.65,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/check_9b1d8889a4d14b60_70e4811de102",
+      "status": 200,
+      "elapsed_ms": 125.49,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_70e4811de102",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "COMPLETED",
+        "last_attempt_outcome": "SUCCEEDED",
+        "business_effect_count": 1,
+        "orders": [
+          {
+            "order_ref": "01a20598-2e61-77b5-9a77-f4213afdaa99",
+            "order_id": "ORD_97cc50cc27b8",
+            "amount_minor": 150000,
+            "currency": "RUB",
+            "created_at": "2026-11-22T23:29:49.153Z"
+          }
+        ],
+        "received_at": "2026-11-22T23:29:48.655Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 201,
+      "elapsed_ms": 201.71,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4458041821fd",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_ae7089f895f1",
+        "attempt_id": "10e9a586-428f-492f-a80a-f41969f152e7",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4458041821fd",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:49.581Z",
+        "replayed": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages",
+      "status": 200,
+      "elapsed_ms": 202.12,
+      "request": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4458041821fd",
+        "run_id": "check_9b1d8889a4d14b60",
+        "order_id": "ORD_ae7089f895f1",
+        "attempt_id": "2e71ce5b-0e7a-4c62-8628-b909992c17fe",
+        "amount_minor": 150000,
+        "currency": "RUB",
+        "created_at": "2026-11-17T00:00:00.000Z"
+      },
+      "response": {
+        "schema_version": 1,
+        "operation_id": "check_9b1d8889a4d14b60_4458041821fd",
+        "run_id": "check_9b1d8889a4d14b60",
+        "server_state": "RECEIVED",
+        "durable_stage": "INBOX_PERSISTED",
+        "received_at": "2026-11-22T23:29:49.581Z",
+        "replayed": true
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/operations/missing_e65a8ec0287c41219e06533ce8231c9b",
+      "status": 404,
+      "elapsed_ms": 116.95,
+      "request": null,
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "OPERATION_NOT_FOUND",
+          "message": "Unknown operation",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 400,
+      "elapsed_ms": 103.26,
+      "request": {
+        "run_id": "check_3125e7ff4f024378",
+        "strategy": "A",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "baseline_enabled must be true for A/B and false for C",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 400,
+      "elapsed_ms": 98.46,
+      "request": {
+        "run_id": "check_3125e7ff4f024378",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "baseline_enabled must be true for A/B and false for C",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/runs",
+      "status": 409,
+      "elapsed_ms": 120.72,
+      "request": {
+        "run_id": "check_9b1d8889a4d14b60",
+        "strategy": "A",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "acceptance_v1",
+        "fault_plan_id": "normal",
+        "expected_count": 100,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "response": {
+        "schema_version": 1,
+        "error": {
+          "code": "RUN_CONFIG_CONFLICT",
+          "message": "Run configuration is immutable",
+          "retryable": false
+        }
+      }
+    }
+  ],
+  "additional_checks": {
+    "run_operations_pagination": {
+      "run_id": "check_0f79800e40e04c0e",
+      "page_sizes": [
+        100,
+        1
+      ],
+      "distinct_operations": 101,
+      "completed": 0,
+      "business_effect_count": 0
+    },
+    "anonymous_health_status": 403,
+    "overview_metrics": {
+      "run_id": "check_2a5c1491afd54037",
+      "strategy": "C",
+      "received": 12,
+      "completed": 7,
+      "business_effect_count": 7,
+      "duplicate_attempts": 10,
+      "duplicate_business_effects": 0,
+      "missing_run_message_verified": true
+    }
+  }
+}

@@ -110,8 +110,8 @@ class ElementApiTests(unittest.TestCase):
         if status != 201:
             raise AssertionError(('Cannot create test run', status, result))
 
-    def receive(self, **changes):
-        value = message(self.run_config['run_id'], **changes)
+    def receive(self, *, run_id=None, **changes):
+        value = message(run_id or self.run_config['run_id'], **changes)
         status, result = request('POST', '/messages', value)
         self.assertEqual(status, 201, result)
         self.assertEqual(result['durable_stage'], 'INBOX_PERSISTED')

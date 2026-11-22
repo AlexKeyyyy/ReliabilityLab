@@ -1,14 +1,6 @@
-# Контракт ReliabilityLab HTTP API — проект v1
+# Контракт ReliabilityLab HTTP API — проект расширений v1
 
-Статус: целевой проект API; первый срез C опубликован и проверяется на runtime 10.0.7-28. Точный текущий набор маршрутов, DTO, авторизация, коды ошибок и ограничения — в [FIRST_SLICE.md](FIRST_SLICE.md). A/B, метрики и observations в этом документе остаются проектом; контракт пока не согласован с Линой. Бизнес-алгоритмы и модель — [ARCHITECTURE.md](ARCHITECTURE.md).
-
-## Адрес и доступ
-
-Метаданные HttpСервис: `ReliabilityLabApi`, `КорневойUrl: /reliability/v1`. Платформа добавляет `/api/`: полный адрес `{APP_PUBLICATION_URL}/api/reliability/v1`. Фактический адрес приложения ещё неизвестен. [Формат URL в документации](https://1cmycloud.com/console/help/element/10.0/docs/topics/http-service-element/).
-
-Штатная аутентификация приложения: служебный пользователь с доступом к HTTP-сервису, отдельные ClientId/ClientSecret → POST `{APP_PUBLICATION_URL}/sys/token` с `grant_type=CLIENT_CREDENTIALS` → поле `id_token` → `Authorization: Bearer ...`. Эти ключи не равны логину/паролю панели и не должны автоматически переиспользовать её credentials. Токен допускает повторные вызовы; при 401 клиент обновляет его ограниченно, не повторяя неопределённую бизнес-операцию вслепую. [Документация](https://1cmycloud.com/console/help/element/10.0/docs/topics/external-program-authentication/).
-
-Все тела JSON, `Content-Type: application/json`; ошибки не раскрывают stack trace и секреты. Управление baseline и планом сбоев доступно владельцу эксперимента, обычный процессинг — служебному пользователю. Конкретные права проверяются при публикации.
+Актуальные маршруты опубликованного API и порядок подключения собраны в [ELEMENT_HANDOFF.md](ELEMENT_HANDOFF.md). Ниже сохранён проект расширений, включая импорт наблюдений и параметры будущих версий. Совместное согласование с Линой и прогон через RabbitMQ фиксируются отдельно.
 
 ## Бизнес-сообщение
 
