@@ -19,8 +19,26 @@
         РастягиватьПоВертикали: Ложь
         Заголовок: ReliabilityLab • durable recovery
         ШиринаВКолонках: Четверная
-        Содержимое: 'Receive → persist inbox → process → commit order → read result. Current implementation: strategy C. A/B and research
-          metrics are planned.'
+        Содержимое: 'Receive → persist inbox → process → commit order → read result. Runs compare strategies A, B and C.'
+      - Тип: СтандартнаяКарточка
+        ШиринаВКолонках: Четверная
+        РастягиватьПоВертикали: Ложь
+        Заголовок: Run metrics
+        Содержимое:
+          Тип: Группа
+          Содержимое:
+          - Тип: ПолеВвода<Строка>
+            Имя: ИдПрогона
+            Заголовок: Run ID
+            Значение: =ИдПрогона
+          - Тип: Кнопка
+            Заголовок: Load metrics
+            Команды:
+              Тип: ОбычнаяКоманда
+              Представление: Load metrics
+              Обработчик: ЗагрузитьМетрики
+          - Тип: Надпись
+            Значение: =Метрики
       - Тип: СтандартнаяКарточка
         РастягиватьПоВертикали: Ложь
         Заголовок: Operations
@@ -67,3 +85,8 @@
         ШиринаВКолонках: Четверная
         Содержимое: RECEIVED means the inbox is saved. COMPLETED means the order and canonical result were committed together. A lost
           response means UNKNOWN to the caller; inspect the operation before retrying.
+Свойства:
+- Имя: ИдПрогона
+  Тип: Строка
+- Имя: Метрики
+  Тип: Строка

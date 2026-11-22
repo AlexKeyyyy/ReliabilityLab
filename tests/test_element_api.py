@@ -5,15 +5,52 @@ service token; an injected transport is supported for an existing admin session.
 No Python replacement of the Element business logic is used here.
 """
 import concurrent.futures
+import base64
 import json
 import os
 import unittest
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 
 TRANSPORT = None
 RUN_IDS = []
+API_SUFFIX = '/api/reliability/v1'
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def get_service_token():
+    """Exchange application credentials on the same HTTPS origin as the API."""
+    client_id = os.environ.get('RELIABILITYLAB_CLIENT_ID')
+    client_secret = os.environ.get('RELIABILITYLAB_CLIENT_SECRET')
+    if not client_id or not client_secret:
+        raise RuntimeError('Set RELIABILITYLAB_API_TOKEN or both application client credentials')
+    base = os.environ['RELIABILITYLAB_API_BASE_URL'].rstrip('/')
+    url = urllib.parse.urlsplit(base)
+    if (url.scheme != 'https' or not url.hostname or url.username or url.password
+            or url.query or url.fragment or not url.path.endswith(API_SUFFIX)):
+        raise ValueError('Expected an HTTPS application URL ending in ' + API_SUFFIX)
+    basic = base64.b64encode(f'{client_id}:{client_secret}'.encode()).decode('ascii')
+    req = urllib.request.Request(
+        base[:-len(API_SUFFIX)] + '/sys/token',
+        data=b'grant_type=CLIENT_CREDENTIALS',
+        headers={'Authorization': 'Basic ' + basic,
+                 'Content-Type': 'application/x-www-form-urlencoded'},
+        method='POST',
+    )
+    try:
+        with urllib.request.build_opener(NoRedirect()).open(req, timeout=15) as response:
+            token = json.load(response).get('id_token')
+    except urllib.error.HTTPError as error:
+        raise RuntimeError(f'Application token request returned HTTP {error.code}') from None
+    if not isinstance(token, str) or not token:
+        raise RuntimeError('Application token endpoint returned no id_token')
+    return token
 
 
 def request(method, path, body=None):
@@ -30,10 +67,13 @@ def request(method, path, body=None):
         payload = json.dumps(body).encode()
     req = urllib.request.Request(base + path, data=payload, headers=headers, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=30) as response:
+        with urllib.request.build_opener(NoRedirect()).open(req, timeout=30) as response:
             return response.status, json.load(response)
     except urllib.error.HTTPError as error:
-        return error.code, json.load(error)
+        try:
+            return error.code, json.load(error)
+        except ValueError:
+            return error.code, {'error': {'code': 'NON_JSON_HTTP_ERROR'}}
 
 
 def attempt():
@@ -63,6 +103,8 @@ class ElementApiTests(unittest.TestCase):
     def setUpClass(cls):
         if not os.environ.get('RELIABILITYLAB_API_BASE_URL') and TRANSPORT is None:
             raise unittest.SkipTest('Set RELIABILITYLAB_API_BASE_URL for live tests; no backend is simulated')
+        if TRANSPORT is None and not os.environ.get('RELIABILITYLAB_API_TOKEN'):
+            os.environ['RELIABILITYLAB_API_TOKEN'] = get_service_token()
         cls.run_config = run_body()
         status, result = request('POST', '/runs', cls.run_config)
         if status != 201:
