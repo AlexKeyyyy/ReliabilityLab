@@ -40,12 +40,12 @@ def attempt():
     return str(uuid.uuid4())
 
 
-def run_body(scenario='normal'):
+def run_body(scenario='normal', strategy='C'):
     run_id = 'check_' + uuid.uuid4().hex[:16]
     RUN_IDS.append(run_id)
-    return {'run_id': run_id, 'strategy': 'C', 'scenario': scenario,
+    return {'run_id': run_id, 'strategy': strategy, 'scenario': scenario,
             'seed': 101, 'dataset_id': 'acceptance_v1', 'fault_plan_id': scenario,
-            'expected_count': 100, 'baseline_enabled': False,
+            'expected_count': 100, 'baseline_enabled': strategy in ('A', 'B'),
             'config': {'http_timeout_ms': 5000, 'max_attempts': 3}}
 
 
@@ -237,6 +237,77 @@ class ElementApiTests(unittest.TestCase):
     def test_unknown_operation_is_404(self):
         status, result = request('GET', '/operations/missing_' + uuid.uuid4().hex)
         self.assertEqual(status, 404, result)
+
+    def create_baseline(self, strategy, scenario):
+        config = run_body(scenario, strategy)
+        code, answer = request('POST', '/runs', config)
+        self.assertEqual((code, answer.get('strategy')), (201, strategy), answer)
+        return config
+
+    def test_unsafe_baseline_requires_opt_in_and_cannot_replace_c(self):
+        config = run_body(strategy='A')
+        self.assertEqual(request('POST', '/runs', dict(config, baseline_enabled=False))[0], 400)
+        self.assertEqual(request('POST', '/runs', dict(config, strategy='C'))[0], 400)
+        changed = dict(self.run_config, strategy='A', baseline_enabled=True)
+        self.assertEqual(request('POST', '/runs', changed)[0], 409)
+
+    def test_a_retry_after_discarded_response_creates_two_orders(self):
+        run = self.create_baseline('A', 'drop_response_after_commit')
+        value = self.receive(run_id=run['run_id'])
+        code, first = self.process(value)
+        self.assertEqual(code, 200, first)
+        # The retry decision uses no state read or data from the first response.
+        retry_id = attempt()
+        code, second = self.process(value, 'retry', retry_id)
+        self.assertEqual(code, 200, second)
+        self.assertFalse(second['replayed'])
+        self.assertNotEqual(first['result']['order_ref'], second['result']['order_ref'])
+        self.assertEqual(self.process(value, 'retry', retry_id), (code, second))
+        state = self.state(value)
+        self.assertEqual(state['business_effect_count'], 2)
+        self.assertEqual({order['order_ref'] for order in state['orders']},
+                         {first['result']['order_ref'], second['result']['order_ref']})
+        unprocessed = self.receive(run_id=run['run_id'])
+        code, metrics = request('GET', '/runs/' + run['run_id'] + '/metrics')
+        self.assertEqual(code, 200, metrics)
+        self.assertEqual({name: metrics[name] for name in (
+            'received', 'completed', 'business_effect_count',
+            'duplicate_business_effects', 'duplicate_attempts', 'sent', 'unknown',
+        )}, {
+            'received': 2, 'completed': 1, 'business_effect_count': 2,
+            'duplicate_business_effects': 1, 'duplicate_attempts': 1,
+            'sent': None, 'unknown': None,
+        })
+        self.assertEqual(metrics['observation_coverage'], 'SERVER_ONLY')
+        code, page = request('GET', '/runs/' + run['run_id'] + '/operations')
+        self.assertEqual(code, 200, page)
+        self.assertEqual({item['operation_id']: item['server_state'] for item in page['operations']},
+                         {value['operation_id']: 'COMPLETED', unprocessed['operation_id']: 'RECEIVED'})
+        self.assertIsNone(page['next_cursor'])
+
+    def test_b_state_check_finds_committed_order(self):
+        run = self.create_baseline('B', 'drop_response_after_commit')
+        value = self.receive(run_id=run['run_id'])
+        self.assertEqual(self.process(value)[0], 200)
+        state = self.state(value)
+        self.assertEqual(state['server_state'], 'COMPLETED')
+        self.assertEqual(state['business_effect_count'], 1)
+
+    def test_b_stale_state_check_can_create_duplicate(self):
+        for strategy, final_count in [('B', 2), ('C', 1)]:
+            with self.subTest(strategy=strategy):
+                config = run_body(strategy=strategy)
+                self.assertEqual(request('POST', '/runs', config)[0], 201)
+                value = self.receive(run_id=config['run_id'])
+                # Schedule the interleaving deterministically: GET observes no effect,
+                # the original call commits, then recovery acts on the stale read.
+                self.assertEqual(self.state(value)['business_effect_count'], 0)
+                code, first = self.process(value)
+                self.assertEqual(code, 200, first)
+                code, retry = self.process(value, 'retry')
+                self.assertEqual(code, 200, retry)
+                self.assertEqual(retry['replayed'], strategy == 'C')
+                self.assertEqual(self.state(value)['business_effect_count'], final_count)
 
 
 if __name__ == '__main__':
