@@ -1,0 +1,95 @@
+{
+  "run_id": "check_811dc694b61e49d4",
+  "operation_id": "check_811dc694b61e49d4_op-000001",
+  "configuration": {
+    "run_id": "check_811dc694b61e49d4",
+    "strategy": "C",
+    "scenario": "duplicate_delivery",
+    "seed": 101,
+    "dataset_id": "lina_smoke",
+    "fault_plan_id": "duplicate_delivery",
+    "expected_count": 1,
+    "baseline_enabled": false,
+    "config": {
+      "http_timeout_ms": 5000,
+      "max_attempts": 3
+    }
+  },
+  "generator_message": {
+    "schema_version": 1,
+    "operation_id": "op-000001",
+    "order_id": "ORD-000001",
+    "amount": 76272,
+    "created_at": "2026-11-20T00:00:01+00:00",
+    "run_id": "check_811dc694b61e49d4",
+    "attempt_id": "attempt-000001-001"
+  },
+  "element_state": {
+    "schema_version": 1,
+    "operation_id": "check_811dc694b61e49d4_op-000001",
+    "run_id": "check_811dc694b61e49d4",
+    "server_state": "COMPLETED",
+    "last_attempt_outcome": "REPLAYED",
+    "business_effect_count": 1,
+    "orders": [
+      {
+        "order_ref": "01a2102a-140b-71cd-b9db-aa69738a135a",
+        "order_id": "ORD-000001",
+        "amount_minor": 76272,
+        "currency": "RUB",
+        "created_at": "2026-11-25T00:45:22.825Z"
+      }
+    ],
+    "received_at": "2026-11-25T00:45:22.609Z"
+  },
+  "events": [
+    {
+      "event": "publisher_confirmed",
+      "at": "2026-11-25T00:45:22.435972+00:00"
+    },
+    {
+      "event": "inbox_persisted",
+      "at": "2026-11-25T00:45:22.593129+00:00",
+      "attempt_id": "21078e51-bd86-4912-ba2a-aeaf2b367888"
+    },
+    {
+      "event": "committed",
+      "at": "2026-11-25T00:45:22.944257+00:00",
+      "order_ref": "01a2102a-140b-71cd-b9db-aa69738a135a",
+      "attempt_id": "9f263fb8-ad2c-421e-8d3a-cac8432c555a"
+    },
+    {
+      "event": "closed_before_ack",
+      "at": "2026-11-25T00:45:22.946977+00:00"
+    },
+    {
+      "event": "broker_redelivery",
+      "at": "2026-11-25T00:45:22.950546+00:00",
+      "redelivered": true
+    },
+    {
+      "event": "result_replayed",
+      "at": "2026-11-25T00:45:23.247246+00:00",
+      "order_ref": "01a2102a-140b-71cd-b9db-aa69738a135a",
+      "attempt_id": "7aed3700-4848-46b7-b904-e8ef6daaea28"
+    },
+    {
+      "event": "order_verified",
+      "at": "2026-11-25T00:45:23.409265+00:00",
+      "count": 1,
+      "order_ref": "01a2102a-140b-71cd-b9db-aa69738a135a"
+    },
+    {
+      "event": "consumer_ack",
+      "at": "2026-11-25T00:45:23.412143+00:00"
+    },
+    {
+      "event": "queue_empty_after_ack",
+      "at": "2026-11-25T00:45:23.413458+00:00"
+    }
+  ],
+  "rabbitmq_version": "4.2.9",
+  "generator_commit": "0b75d485541f82e80746a0bad66188b297f891ae",
+  "authentication": "Existing Element administrator session",
+  "scope": "Live generator and RabbitMQ to Element via a smoke-test consumer"
+}
