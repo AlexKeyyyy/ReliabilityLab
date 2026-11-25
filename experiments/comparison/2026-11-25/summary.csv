@@ -1,0 +1,10 @@
+run_id,strategy,scenario,seed,sent_operations,published_deliveries,received_operations,completed_operations,correctly_completed_operations,duplicate_business_effects,unknown_observed_operations,unknown_final_operations,confirmed_order_mismatches,acks,rejects,http_calls,extra_http_calls_over_receive_and_process_per_delivery,client_processing_samples,client_processing_p50_ms,client_processing_p95_ms,detection_samples,detection_p50_ms,detection_p95_ms,recovery_samples,recovery_p50_ms,recovery_p95_ms
+exp_a_205c2be538ec4eb4,A,drop_response_after_commit,101,100,100,100,100,0,100,100,0,0,100,0,300,100,100,674.804,701.606,100,361.571,383.007,100,309.671,326.892
+exp_a_b7e6fa9b146444f3,A,drop_response_after_commit,103,100,100,100,100,0,100,100,0,0,100,0,300,100,100,674.589,707.741,100,362.688,388.179,100,313.029,323.94
+exp_a_b8de46b40b094d5e,A,drop_response_after_commit,102,100,100,100,100,0,100,100,0,0,100,0,300,100,100,672.813,702.654,100,363.375,385.0,100,309.596,327.264
+exp_b_10d616f608554e76,B,drop_response_after_commit,101,100,100,100,100,100,0,100,0,0,100,0,300,100,100,540.957,568.827,100,365.217,385.773,100,175.764,180.78
+exp_b_80bedcc60dfd46ec,B,drop_response_after_commit,103,100,100,100,100,100,0,100,0,0,100,0,300,100,100,540.403,569.907,100,362.163,386.658,100,178.249,186.941
+exp_b_d8dd621d1cf6462d,B,drop_response_after_commit,102,100,100,100,100,100,0,100,0,0,100,0,300,100,100,538.716,562.638,100,361.438,384.603,100,176.347,181.847
+exp_c_0a81be6188bb4fd0,C,drop_response_after_commit,103,100,100,100,100,100,0,100,0,0,100,0,300,100,100,649.469,686.332,100,363.904,388.807,100,286.149,307.931
+exp_c_20f48873917a42e0,C,drop_response_after_commit,101,100,100,100,100,100,0,100,0,0,100,0,300,100,100,649.033,682.048,100,362.249,388.48,100,286.291,298.331
+exp_c_df5a1d57cb394bde,C,drop_response_after_commit,102,100,100,100,100,100,0,100,0,0,100,0,300,100,100,646.582,671.63,100,363.356,383.842,100,282.669,297.133

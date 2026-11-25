@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-25",
+  "element_version": "1.0-13",
+  "element_technology": "10.0.7-28",
+  "rabbitmq_version": "4.2.9",
+  "generator_commit": "0b75d485541f82e80746a0bad66188b297f891ae",
+  "runner_commit": "7eb03ee1ba55384d1233cd80cdc50f665efc6c28",
+  "auth": "Authorized application administrator session used by the HTTP client",
+  "concurrency": "Three independent per-run workers sharing the same RabbitMQ and Element deployment",
+  "archive_sha256": "efe5961d19b9e6b13a9813f4f89167e3d7865bf115d797dbb52dd8c18213f3fb",
+  "runs": [
+    {
+      "run_id": "exp_a_205c2be538ec4eb4",
+      "strategy": "A",
+      "seed": 101
+    },
+    {
+      "run_id": "exp_a_b7e6fa9b146444f3",
+      "strategy": "A",
+      "seed": 103
+    },
+    {
+      "run_id": "exp_a_b8de46b40b094d5e",
+      "strategy": "A",
+      "seed": 102
+    },
+    {
+      "run_id": "exp_b_10d616f608554e76",
+      "strategy": "B",
+      "seed": 101
+    },
+    {
+      "run_id": "exp_b_80bedcc60dfd46ec",
+      "strategy": "B",
+      "seed": 103
+    },
+    {
+      "run_id": "exp_b_d8dd621d1cf6462d",
+      "strategy": "B",
+      "seed": 102
+    },
+    {
+      "run_id": "exp_c_0a81be6188bb4fd0",
+      "strategy": "C",
+      "seed": 103
+    },
+    {
+      "run_id": "exp_c_20f48873917a42e0",
+      "strategy": "C",
+      "seed": 101
+    },
+    {
+      "run_id": "exp_c_df5a1d57cb394bde",
+      "strategy": "C",
+      "seed": 102
+    }
+  ]
+}

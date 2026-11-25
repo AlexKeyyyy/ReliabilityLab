@@ -48,14 +48,37 @@ def settle(channel, delivery, outcome, journal, operation_id):
         journal('consumer_reject', operation_id=operation_id)
 
 
-def run_broker(amqp_url, client, config, inputs, options, journal):
-    run_id = config['run_id']
-    queue = 'reliabilitylab.' + run_id
-    dead = queue + '.unresolved'
+def broker_parameters(amqp_url):
     params = pika.URLParameters(amqp_url)
     params.heartbeat = 120
     params.socket_timeout = 10
     params.blocked_connection_timeout = 15
+    return params
+
+
+def handle_delivery(channel, frame, properties, body, policy, config, amount_unit, journal):
+    copy = (properties.headers or {}).get('experiment_copy', 0)
+    try:
+        message = normalize(json.loads(body), config['run_id'], amount_unit)
+    except (ValueError, TypeError, OverflowError):
+        operation_id = None
+        outcome = Outcome('REJECTED', reason='INVALID_MESSAGE')
+    else:
+        operation_id = message['operation_id']
+        repeated = frame.redelivered or bool(copy)
+        journal('broker_delivery', operation_id=operation_id, redelivered=frame.redelivered,
+                experiment_copy=copy)
+        outcome = policy.run(message, recover=repeated,
+                             drop_response=config['scenario'] == 'drop_response_after_commit' and not repeated)
+    settle(channel, frame.delivery_tag, outcome, journal, operation_id)
+    return operation_id, outcome
+
+
+def run_broker(amqp_url, client, config, inputs, options, journal):
+    run_id = config['run_id']
+    queue = 'reliabilitylab.' + run_id
+    dead = queue + '.unresolved'
+    params = broker_parameters(amqp_url)
     with pika.BlockingConnection(params) as connection:
         channel = connection.channel()
         channel.queue_declare(queue=dead, durable=True, arguments={'x-queue-type': 'quorum'})
@@ -84,20 +107,10 @@ def run_broker(amqp_url, client, config, inputs, options, journal):
             frame, props, body = worker.basic_get(queue=queue, auto_ack=False)
             if frame is None:
                 raise RuntimeError('Broker returned no message for a confirmed publish')
-            operation_id = None
-            try:
-                message = normalize(json.loads(body), run_id, options.amount_unit)
-            except (ValueError, TypeError):
-                outcome = Outcome('REJECTED', reason='INVALID_MESSAGE')
-            else:
-                operation_id = message['operation_id']
-                repeated = frame.redelivered or bool((props.headers or {}).get('experiment_copy', 0))
-                journal('broker_delivery', operation_id=operation_id, redelivered=frame.redelivered,
-                        experiment_copy=(props.headers or {}).get('experiment_copy', 0))
-                outcome = policy.run(message, recover=repeated,
-                                     drop_response=options.scenario == 'drop_response_after_commit' and not repeated)
+            operation_id, outcome = handle_delivery(worker, frame, props, body, policy, config,
+                                                    options.amount_unit, journal)
+            if operation_id is not None:
                 outcomes[operation_id] = outcome
-            settle(worker, frame.delivery_tag, outcome, journal, operation_id)
             rejected += outcome.state != 'COMPLETED'
             connection.process_data_events(time_limit=0)
         worker.close()

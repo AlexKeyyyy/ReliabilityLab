@@ -1,0 +1,2517 @@
+{
+  "runs": [
+    {
+      "run_id": "exp_a_96acdc8758d142db",
+      "configuration": {
+        "run_id": "exp_a_96acdc8758d142db",
+        "strategy": "A",
+        "scenario": "fail_before_commit",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "fail_before_commit",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_a_96acdc8758d142db",
+        "unresolved_queue": "reliabilitylab.exp_a_96acdc8758d142db.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_a_96acdc8758d142db",
+        "strategy": "A",
+        "scenario": "fail_before_commit",
+        "as_of": "2026-11-25T00:51:15.084Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 2,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 6,
+        "extra_http_calls_over_receive_and_process_per_delivery": 2,
+        "client_processing_ms": [
+          707.051,
+          700.891
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:13.333141+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:13.335808+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:13.338459+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:13.471200+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "ec734314-4b78-43c0-8ae5-312e8a39bc0f",
+          "error": null,
+          "elapsed_ms": 132.51
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:13.718240+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_a_96acdc8758d142db_op-000001/process",
+          "status": 500,
+          "attempt_id": "f837effe-bda3-43b8-b695-9a469e2f118c",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 246.828
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:13.718333+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "attempt_id": "f837effe-bda3-43b8-b695-9a469e2f118c"
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:14.045432+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_a_96acdc8758d142db_op-000001/retry",
+          "status": 200,
+          "attempt_id": "71dd0dd8-604c-4a91-8ddc-127451b67579",
+          "error": null,
+          "elapsed_ms": 225.981
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:14.045518+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "order_ref": "01a2102f-7008-7d92-a50e-812a2f942e6d",
+          "elapsed_ms": 707.051,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:14.045657+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_96acdc8758d142db_op-000001",
+          "order_ref": "01a2102f-7008-7d92-a50e-812a2f942e6d"
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:14.060559+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:14.193741+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "3e17f157-1ebc-47ed-bead-da48e43e37ea",
+          "error": null,
+          "elapsed_ms": 133.089
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:14.432837+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_a_96acdc8758d142db_op-000002/process",
+          "status": 500,
+          "attempt_id": "a41972f5-11d6-4ce6-8c0a-ddcb611617b5",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 238.915
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:14.433014+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "attempt_id": "a41972f5-11d6-4ce6-8c0a-ddcb611617b5"
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:14.761301+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "http_exchange",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_a_96acdc8758d142db_op-000002/retry",
+          "status": 200,
+          "attempt_id": "082682ee-74b2-4f07-8a7f-ca3c7083d5f7",
+          "error": null,
+          "elapsed_ms": 227.595
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:14.761478+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "order_ref": "01a2102f-72d2-7841-a0f2-e3c5c4a31f29",
+          "elapsed_ms": 700.891,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:14.761786+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_96acdc8758d142db_op-000002",
+          "order_ref": "01a2102f-72d2-7841-a0f2-e3c5c4a31f29"
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:14.767052+00:00",
+          "run_id": "exp_a_96acdc8758d142db",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_a_a77f862229964bfb",
+      "configuration": {
+        "run_id": "exp_a_a77f862229964bfb",
+        "strategy": "A",
+        "scenario": "duplicate_delivery",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "duplicate_delivery",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_a_a77f862229964bfb",
+        "unresolved_queue": "reliabilitylab.exp_a_a77f862229964bfb.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_a_a77f862229964bfb",
+        "strategy": "A",
+        "scenario": "duplicate_delivery",
+        "as_of": "2026-11-25T00:51:17.063Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 4,
+        "duplicate_business_effects": 2,
+        "duplicate_attempts": 2,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 4,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 0,
+        "duplicate_business_effects": 2,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 4,
+        "rejects": 0,
+        "http_calls": 8,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          368.365,
+          327.539,
+          365.44,
+          333.264
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:15.327760+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:15.329452+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "copy": 1
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:15.330928+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:15.332524+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "copy": 1
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:15.334698+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:15.463572+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "6239c9b3-6466-4446-b2dc-1945edd70095",
+          "error": null,
+          "elapsed_ms": 128.802
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:15.702940+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_a_a77f862229964bfb_op-000001/process",
+          "status": 200,
+          "attempt_id": "15de39a9-40b2-4704-901f-1ded4ec00238",
+          "error": null,
+          "elapsed_ms": 239.225
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:15.703083+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "order_ref": "01a2102f-767a-7993-b0ec-e4b8b652ca9a",
+          "elapsed_ms": 368.365,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:15.703349+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "order_ref": "01a2102f-767a-7993-b0ec-e4b8b652ca9a"
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:15.708013+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:15.828193+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "787f60e4-b237-4b06-8788-11cf37f7b1d7",
+          "error": null,
+          "elapsed_ms": 120.027
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:16.035323+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_a_a77f862229964bfb_op-000001/retry",
+          "status": 200,
+          "attempt_id": "a707021c-81cd-4a2e-b5d7-365bfacda5ab",
+          "error": null,
+          "elapsed_ms": 206.978
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:16.035625+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "order_ref": "01a2102f-77dd-73ca-b045-9cd974977933",
+          "elapsed_ms": 327.539,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:16.036090+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_a77f862229964bfb_op-000001",
+          "order_ref": "01a2102f-77dd-73ca-b045-9cd974977933"
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:16.042323+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:16.177383+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "83951062-c9c9-4dcc-b7cf-6e4e9b2b852b",
+          "error": null,
+          "elapsed_ms": 134.75
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:16.407685+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_a_a77f862229964bfb_op-000002/process",
+          "status": 200,
+          "attempt_id": "2ff36596-242a-43c2-ab0b-7a63f2bd9250",
+          "error": null,
+          "elapsed_ms": 230.059
+        },
+        {
+          "sequence": 18,
+          "timestamp": "2026-11-25T00:51:16.407965+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "order_ref": "01a2102f-793e-7b3a-a54a-9c82ad550bf1",
+          "elapsed_ms": 365.44,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 19,
+          "timestamp": "2026-11-25T00:51:16.408415+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "order_ref": "01a2102f-793e-7b3a-a54a-9c82ad550bf1"
+        },
+        {
+          "sequence": 20,
+          "timestamp": "2026-11-25T00:51:16.414869+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 21,
+          "timestamp": "2026-11-25T00:51:16.531079+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "5a1d944b-4f58-4bad-b341-33436ae51ed4",
+          "error": null,
+          "elapsed_ms": 115.945
+        },
+        {
+          "sequence": 22,
+          "timestamp": "2026-11-25T00:51:16.748225+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "http_exchange",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_a_a77f862229964bfb_op-000002/retry",
+          "status": 200,
+          "attempt_id": "100a1603-f20e-4c54-8e73-7e81787eaf03",
+          "error": null,
+          "elapsed_ms": 216.983
+        },
+        {
+          "sequence": 23,
+          "timestamp": "2026-11-25T00:51:16.748285+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "order_ref": "01a2102f-7aa6-785f-8291-a5120199741e",
+          "elapsed_ms": 333.264,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 24,
+          "timestamp": "2026-11-25T00:51:16.748455+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_a77f862229964bfb_op-000002",
+          "order_ref": "01a2102f-7aa6-785f-8291-a5120199741e"
+        },
+        {
+          "sequence": 25,
+          "timestamp": "2026-11-25T00:51:16.757081+00:00",
+          "run_id": "exp_a_a77f862229964bfb",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_a_c8508a0eb1124a59",
+      "configuration": {
+        "run_id": "exp_a_c8508a0eb1124a59",
+        "strategy": "A",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "normal",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_a_c8508a0eb1124a59",
+        "unresolved_queue": "reliabilitylab.exp_a_c8508a0eb1124a59.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_a_c8508a0eb1124a59",
+        "strategy": "A",
+        "scenario": "normal",
+        "as_of": "2026-11-25T00:51:13.149Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 0,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 4,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          380.969,
+          376.649
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:12.070426+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:12.073100+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:12.075747+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:12.222544+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "http_exchange",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "4f17ec7c-ba58-4b78-ab12-544e223f56fd",
+          "error": null,
+          "elapsed_ms": 146.73
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:12.456664+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "http_exchange",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_a_c8508a0eb1124a59_op-000001/process",
+          "status": 200,
+          "attempt_id": "5c712b75-4307-4a38-a4c4-20a921822ed9",
+          "error": null,
+          "elapsed_ms": 233.963
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:12.456732+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "order_ref": "01a2102f-69d0-7c3a-a9e9-3346375d98ef",
+          "elapsed_ms": 380.969,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:12.456855+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000001",
+          "order_ref": "01a2102f-69d0-7c3a-a9e9-3346375d98ef"
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:12.460371+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "broker_delivery",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:12.600003+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "http_exchange",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "c7032a78-d09c-4bd4-9a53-db2f094d3c1c",
+          "error": null,
+          "elapsed_ms": 139.504
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:12.837038+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "http_exchange",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_a_c8508a0eb1124a59_op-000002/process",
+          "status": 200,
+          "attempt_id": "8c63e3c4-f9b1-421c-8bd8-a0cf01ce7f5d",
+          "error": null,
+          "elapsed_ms": 236.888
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:12.837092+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "order_confirmed",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "order_ref": "01a2102f-6b4a-7250-80f1-ca7b2733ed8b",
+          "elapsed_ms": 376.649,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:12.837204+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "consumer_ack",
+          "operation_id": "exp_a_c8508a0eb1124a59_op-000002",
+          "order_ref": "01a2102f-6b4a-7250-80f1-ca7b2733ed8b"
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:12.841186+00:00",
+          "run_id": "exp_a_c8508a0eb1124a59",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_b_403146ca180e46b1",
+      "configuration": {
+        "run_id": "exp_b_403146ca180e46b1",
+        "strategy": "B",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "normal",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_b_403146ca180e46b1",
+        "unresolved_queue": "reliabilitylab.exp_b_403146ca180e46b1.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_b_403146ca180e46b1",
+        "strategy": "B",
+        "scenario": "normal",
+        "as_of": "2026-11-25T00:51:13.105Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 0,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 4,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          354.484,
+          355.41
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:12.065777+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:12.069581+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:12.073771+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:12.211596+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "http_exchange",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "e5ec65e7-7455-4618-b408-64f5e5f57d4f",
+          "error": null,
+          "elapsed_ms": 137.745
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:12.428199+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "http_exchange",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_b_403146ca180e46b1_op-000001/process",
+          "status": 200,
+          "attempt_id": "0160b44b-8081-4b52-965e-5532a70665f0",
+          "error": null,
+          "elapsed_ms": 216.289
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:12.428274+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "order_ref": "01a2102f-69b9-7729-824f-5351f359d813",
+          "elapsed_ms": 354.484,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:12.428419+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_403146ca180e46b1_op-000001",
+          "order_ref": "01a2102f-69b9-7729-824f-5351f359d813"
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:12.432847+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:12.564544+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "http_exchange",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "67e9057e-106e-4995-9807-fecadba70cc7",
+          "error": null,
+          "elapsed_ms": 131.621
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:12.788225+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "http_exchange",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_b_403146ca180e46b1_op-000002/process",
+          "status": 200,
+          "attempt_id": "6d17a061-87cc-494d-8c48-8bc6f504921b",
+          "error": null,
+          "elapsed_ms": 223.604
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:12.788291+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "order_ref": "01a2102f-6b1f-7f00-bb63-7af041c1df67",
+          "elapsed_ms": 355.41,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:12.788509+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_403146ca180e46b1_op-000002",
+          "order_ref": "01a2102f-6b1f-7f00-bb63-7af041c1df67"
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:12.795267+00:00",
+          "run_id": "exp_b_403146ca180e46b1",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_b_5cc8f9c8583d4583",
+      "configuration": {
+        "run_id": "exp_b_5cc8f9c8583d4583",
+        "strategy": "B",
+        "scenario": "fail_before_commit",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "fail_before_commit",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_b_5cc8f9c8583d4583",
+        "unresolved_queue": "reliabilitylab.exp_b_5cc8f9c8583d4583.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_b_5cc8f9c8583d4583",
+        "strategy": "B",
+        "scenario": "fail_before_commit",
+        "as_of": "2026-11-25T00:51:15.263Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 2,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 8,
+        "extra_http_calls_over_receive_and_process_per_delivery": 4,
+        "client_processing_ms": [
+          790.544,
+          815.343
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:13.333134+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:13.334963+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:13.337598+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:13.468947+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "7312e754-d929-44a2-88db-487974787d2c",
+          "error": null,
+          "elapsed_ms": 131.25
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:13.723403+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000001/process",
+          "status": 500,
+          "attempt_id": "b788be1d-2ffd-40ff-8864-6eee6ff7f7c1",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 254.229
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:13.723532+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "attempt_id": "b788be1d-2ffd-40ff-8864-6eee6ff7f7c1"
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:13.890944+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "method": "GET",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000001",
+          "status": 200,
+          "attempt_id": null,
+          "error": null,
+          "elapsed_ms": 67.186
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:14.128065+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000001/retry",
+          "status": 200,
+          "attempt_id": "10c80a43-0ff0-4e57-a602-9c4322ee37d5",
+          "error": null,
+          "elapsed_ms": 237.028
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:14.128146+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "order_ref": "01a2102f-7054-7bc7-86b3-125bc00f37e8",
+          "elapsed_ms": 790.544,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:14.128310+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000001",
+          "order_ref": "01a2102f-7054-7bc7-86b3-125bc00f37e8"
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:14.134854+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:14.273979+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "e4a4a072-a853-4483-9960-c876a264f882",
+          "error": null,
+          "elapsed_ms": 139.025
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:14.530595+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000002/process",
+          "status": 500,
+          "attempt_id": "89f41ac9-248e-403a-b2fe-941c65f28641",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 256.426
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:14.530737+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "attempt_id": "89f41ac9-248e-403a-b2fe-941c65f28641"
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:14.708690+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "method": "GET",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000002",
+          "status": 200,
+          "attempt_id": null,
+          "error": null,
+          "elapsed_ms": 76.74
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:14.950088+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "http_exchange",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_b_5cc8f9c8583d4583_op-000002/retry",
+          "status": 200,
+          "attempt_id": "066d7f61-bfb0-4ae7-a154-e3da6aa84f30",
+          "error": null,
+          "elapsed_ms": 241.029
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:14.950212+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "order_ref": "01a2102f-7389-7bdc-8df9-e95d29b351c9",
+          "elapsed_ms": 815.343,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 18,
+          "timestamp": "2026-11-25T00:51:14.950441+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_5cc8f9c8583d4583_op-000002",
+          "order_ref": "01a2102f-7389-7bdc-8df9-e95d29b351c9"
+        },
+        {
+          "sequence": 19,
+          "timestamp": "2026-11-25T00:51:14.957532+00:00",
+          "run_id": "exp_b_5cc8f9c8583d4583",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_b_a79a6584dc2746df",
+      "configuration": {
+        "run_id": "exp_b_a79a6584dc2746df",
+        "strategy": "B",
+        "scenario": "duplicate_delivery",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "duplicate_delivery",
+        "expected_count": 2,
+        "baseline_enabled": true,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_b_a79a6584dc2746df",
+        "unresolved_queue": "reliabilitylab.exp_b_a79a6584dc2746df.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_b_a79a6584dc2746df",
+        "strategy": "B",
+        "scenario": "duplicate_delivery",
+        "as_of": "2026-11-25T00:51:16.747Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 0,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 4,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 4,
+        "rejects": 0,
+        "http_calls": 8,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          358.272,
+          188.961,
+          349.674,
+          182.208
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:15.329052+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:15.330502+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "copy": 1
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:15.331713+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:15.333080+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "copy": 1
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:15.335100+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:15.467095+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "0b1d566c-39ee-4345-8005-4b2b40b414f0",
+          "error": null,
+          "elapsed_ms": 131.937
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:15.693213+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_b_a79a6584dc2746df_op-000001/process",
+          "status": 200,
+          "attempt_id": "94a415e2-63df-464a-b940-97731e27f449",
+          "error": null,
+          "elapsed_ms": 225.997
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:15.693385+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "order_ref": "01a2102f-7676-7488-9cd9-fa74fcac5fbd",
+          "elapsed_ms": 358.272,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:15.693719+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "order_ref": "01a2102f-7676-7488-9cd9-fa74fcac5fbd"
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:15.699311+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:15.813867+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "ce791145-0eec-4b03-8c03-e46080b52903",
+          "error": null,
+          "elapsed_ms": 114.348
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:15.888234+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "method": "GET",
+          "path": "/operations/exp_b_a79a6584dc2746df_op-000001",
+          "status": 200,
+          "attempt_id": null,
+          "error": null,
+          "elapsed_ms": 74.199
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:15.888404+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "order_ref": "01a2102f-7676-7488-9cd9-fa74fcac5fbd",
+          "elapsed_ms": 188.961,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:15.888681+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000001",
+          "order_ref": "01a2102f-7676-7488-9cd9-fa74fcac5fbd"
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:15.894425+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:16.026650+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "b1898eb6-1115-4141-bdcc-dfb44342bf51",
+          "error": null,
+          "elapsed_ms": 132.003
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:16.244084+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_b_a79a6584dc2746df_op-000002/process",
+          "status": 200,
+          "attempt_id": "4c4f00f8-9464-47c7-bb58-fbb92cba5899",
+          "error": null,
+          "elapsed_ms": 217.12
+        },
+        {
+          "sequence": 18,
+          "timestamp": "2026-11-25T00:51:16.244225+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "order_ref": "01a2102f-78a2-7e03-96e8-de18b6fa8256",
+          "elapsed_ms": 349.674,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 19,
+          "timestamp": "2026-11-25T00:51:16.244460+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "order_ref": "01a2102f-78a2-7e03-96e8-de18b6fa8256"
+        },
+        {
+          "sequence": 20,
+          "timestamp": "2026-11-25T00:51:16.250834+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "broker_delivery",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 21,
+          "timestamp": "2026-11-25T00:51:16.362110+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "d70f6875-e4fc-4915-b9fb-c1d57cc425fa",
+          "error": null,
+          "elapsed_ms": 111.094
+        },
+        {
+          "sequence": 22,
+          "timestamp": "2026-11-25T00:51:16.433018+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "http_exchange",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "method": "GET",
+          "path": "/operations/exp_b_a79a6584dc2746df_op-000002",
+          "status": 200,
+          "attempt_id": null,
+          "error": null,
+          "elapsed_ms": 70.77
+        },
+        {
+          "sequence": 23,
+          "timestamp": "2026-11-25T00:51:16.433158+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "order_confirmed",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "order_ref": "01a2102f-78a2-7e03-96e8-de18b6fa8256",
+          "elapsed_ms": 182.208,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 24,
+          "timestamp": "2026-11-25T00:51:16.433427+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "consumer_ack",
+          "operation_id": "exp_b_a79a6584dc2746df_op-000002",
+          "order_ref": "01a2102f-78a2-7e03-96e8-de18b6fa8256"
+        },
+        {
+          "sequence": 25,
+          "timestamp": "2026-11-25T00:51:16.438507+00:00",
+          "run_id": "exp_b_a79a6584dc2746df",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_c_236d3f8288ed4454",
+      "configuration": {
+        "run_id": "exp_c_236d3f8288ed4454",
+        "strategy": "C",
+        "scenario": "normal",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "normal",
+        "expected_count": 2,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_c_236d3f8288ed4454",
+        "unresolved_queue": "reliabilitylab.exp_c_236d3f8288ed4454.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_c_236d3f8288ed4454",
+        "strategy": "C",
+        "scenario": "normal",
+        "as_of": "2026-11-25T00:51:13.097Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 0,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 4,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          372.902,
+          336.96
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:12.065865+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:12.069581+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:12.073776+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:12.207582+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "http_exchange",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "b4a43c7f-6f90-49f4-93f2-1aa589609e9d",
+          "error": null,
+          "elapsed_ms": 132.91
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:12.446602+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "http_exchange",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_236d3f8288ed4454_op-000001/process",
+          "status": 200,
+          "attempt_id": "c75935a8-878b-4342-a3b6-f2512a09bfc3",
+          "error": null,
+          "elapsed_ms": 238.821
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:12.446691+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "order_ref": "01a2102f-69c0-7470-a14b-8e9a53d3a49c",
+          "elapsed_ms": 372.902,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:12.446826+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000001",
+          "order_ref": "01a2102f-69c0-7470-a14b-8e9a53d3a49c"
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:12.451309+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:12.576322+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "http_exchange",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "7da0c4ce-a260-45f5-97fb-93d29cb9306f",
+          "error": null,
+          "elapsed_ms": 124.947
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:12.788254+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "http_exchange",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_c_236d3f8288ed4454_op-000002/process",
+          "status": 200,
+          "attempt_id": "732d9e7d-ad8f-48c5-8c72-a29d3b46a674",
+          "error": null,
+          "elapsed_ms": 211.862
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:12.788296+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "order_ref": "01a2102f-6b24-7efc-a7a3-a1972b0604c2",
+          "elapsed_ms": 336.96,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:12.788421+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_236d3f8288ed4454_op-000002",
+          "order_ref": "01a2102f-6b24-7efc-a7a3-a1972b0604c2"
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:12.795281+00:00",
+          "run_id": "exp_c_236d3f8288ed4454",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_c_4a21d6e3bc444a98",
+      "configuration": {
+        "run_id": "exp_c_4a21d6e3bc444a98",
+        "strategy": "C",
+        "scenario": "fail_before_commit",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "fail_before_commit",
+        "expected_count": 2,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_c_4a21d6e3bc444a98",
+        "unresolved_queue": "reliabilitylab.exp_c_4a21d6e3bc444a98.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_c_4a21d6e3bc444a98",
+        "strategy": "C",
+        "scenario": "fail_before_commit",
+        "as_of": "2026-11-25T00:51:15.105Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 2,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 2,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 2,
+        "rejects": 0,
+        "http_calls": 6,
+        "extra_http_calls_over_receive_and_process_per_delivery": 2,
+        "client_processing_ms": [
+          733.333,
+          684.682
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:13.366356+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:13.368262+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:13.371196+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:13.530389+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "fc284ef1-cbc8-4720-832d-2fc76cfdebec",
+          "error": null,
+          "elapsed_ms": 159.094
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:13.783159+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_4a21d6e3bc444a98_op-000001/process",
+          "status": 500,
+          "attempt_id": "995b2864-2041-42c7-af9f-350f695edf64",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 252.545
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:13.783232+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "attempt_id": "995b2864-2041-42c7-af9f-350f695edf64"
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:14.104421+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_4a21d6e3bc444a98_op-000001/retry",
+          "status": 200,
+          "attempt_id": "e259820e-3643-4839-b1ef-837da3c49981",
+          "error": null,
+          "elapsed_ms": 220.02
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:14.104537+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "order_ref": "01a2102f-7048-7a23-b0db-da8a51e5b4f7",
+          "elapsed_ms": 733.333,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:14.104824+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000001",
+          "order_ref": "01a2102f-7048-7a23-b0db-da8a51e5b4f7"
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:14.110165+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:14.243332+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "2a7853b4-8947-4563-8c8f-cc7aa2438016",
+          "error": null,
+          "elapsed_ms": 133.072
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:14.474749+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_c_4a21d6e3bc444a98_op-000002/process",
+          "status": 500,
+          "attempt_id": "751bfad3-b21a-48ab-a411-e3bf374a9280",
+          "error": "INJECTED_BEFORE_COMMIT",
+          "elapsed_ms": 231.179
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:14.474975+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "attempt_rolled_back",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "attempt_id": "751bfad3-b21a-48ab-a411-e3bf374a9280"
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:14.794748+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "http_exchange",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_c_4a21d6e3bc444a98_op-000002/retry",
+          "status": 200,
+          "attempt_id": "0a87452b-2dc0-4158-bfd4-10bef0feb110",
+          "error": null,
+          "elapsed_ms": 218.335
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:14.794864+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "order_ref": "01a2102f-72f8-7633-b63e-3a643a1dec02",
+          "elapsed_ms": 684.682,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:14.795209+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_4a21d6e3bc444a98_op-000002",
+          "order_ref": "01a2102f-72f8-7633-b63e-3a643a1dec02"
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:14.800659+00:00",
+          "run_id": "exp_c_4a21d6e3bc444a98",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    },
+    {
+      "run_id": "exp_c_b507666621c1453b",
+      "configuration": {
+        "run_id": "exp_c_b507666621c1453b",
+        "strategy": "C",
+        "scenario": "drop_response_after_commit",
+        "seed": 101,
+        "dataset_id": "lina_1_101_kopecks",
+        "fault_plan_id": "drop_response_after_commit",
+        "expected_count": 1,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 1
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_c_b507666621c1453b",
+        "unresolved_queue": "reliabilitylab.exp_c_b507666621c1453b.unresolved",
+        "parked": 1,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_c_b507666621c1453b",
+        "strategy": "C",
+        "scenario": "drop_response_after_commit",
+        "as_of": "2026-11-25T00:51:17.706Z",
+        "received": 1,
+        "completed": 1,
+        "business_effect_count": 1,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 0,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 1,
+        "published_deliveries": 1,
+        "received_operations": 1,
+        "completed_operations": 1,
+        "correctly_completed_operations": 1,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 1,
+        "unknown_final_operations": 1,
+        "confirmed_order_mismatches": 0,
+        "acks": 0,
+        "rejects": 1,
+        "http_calls": 2,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [],
+        "detection_ms": [
+          364.434
+        ],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:16.982593+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:16.987600+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:17.122147+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "http_exchange",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "9aea2cba-1108-4b28-9321-d7620bf24beb",
+          "error": null,
+          "elapsed_ms": 134.467
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:17.351864+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "http_exchange",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_b507666621c1453b_op-000001/process",
+          "status": 200,
+          "attempt_id": "f3712906-1455-4445-9ebb-0a7e665a347e",
+          "error": null,
+          "elapsed_ms": 229.592
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:17.352026+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "response_discarded",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "attempt_id": "f3712906-1455-4445-9ebb-0a7e665a347e"
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:17.352066+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "outcome_unknown",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "reason": "MODELED_RESPONSE_LOSS",
+          "detection_ms": 364.434
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:17.352113+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "unresolved",
+          "operation_id": "exp_c_b507666621c1453b_op-000001",
+          "state": "UNKNOWN",
+          "reason": "RECOVERY_RETRY_LIMIT"
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:17.352368+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "consumer_reject",
+          "operation_id": "exp_c_b507666621c1453b_op-000001"
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:17.463491+00:00",
+          "run_id": "exp_c_b507666621c1453b",
+          "event": "broker_settled",
+          "rejected": 1,
+          "parked": 1
+        }
+      ]
+    },
+    {
+      "run_id": "exp_c_e12ebcc26b3241a6",
+      "configuration": {
+        "run_id": "exp_c_e12ebcc26b3241a6",
+        "strategy": "C",
+        "scenario": "duplicate_delivery",
+        "seed": 101,
+        "dataset_id": "lina_2_101_kopecks",
+        "fault_plan_id": "duplicate_delivery",
+        "expected_count": 2,
+        "baseline_enabled": false,
+        "config": {
+          "http_timeout_ms": 5000,
+          "max_attempts": 3
+        }
+      },
+      "broker": {
+        "queue": "reliabilitylab.exp_c_e12ebcc26b3241a6",
+        "unresolved_queue": "reliabilitylab.exp_c_e12ebcc26b3241a6.unresolved",
+        "parked": 0,
+        "version": "4.2.9"
+      },
+      "metrics": {
+        "schema_version": 1,
+        "run_id": "exp_c_e12ebcc26b3241a6",
+        "strategy": "C",
+        "scenario": "duplicate_delivery",
+        "as_of": "2026-11-25T00:51:17.130Z",
+        "received": 2,
+        "completed": 2,
+        "business_effect_count": 2,
+        "duplicate_business_effects": 0,
+        "duplicate_attempts": 2,
+        "sent": null,
+        "unknown": null,
+        "observation_coverage": "SERVER_ONLY"
+      },
+      "summary": {
+        "sent_operations": 2,
+        "published_deliveries": 4,
+        "received_operations": 2,
+        "completed_operations": 2,
+        "correctly_completed_operations": 2,
+        "duplicate_business_effects": 0,
+        "unknown_observed_operations": 0,
+        "unknown_final_operations": 0,
+        "confirmed_order_mismatches": 0,
+        "acks": 4,
+        "rejects": 0,
+        "http_calls": 8,
+        "extra_http_calls_over_receive_and_process_per_delivery": 0,
+        "client_processing_ms": [
+          344.455,
+          299.4,
+          381.757,
+          294.365
+        ],
+        "detection_ms": [],
+        "recovery_ms": []
+      },
+      "events": [
+        {
+          "sequence": 1,
+          "timestamp": "2026-11-25T00:51:15.468327+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "copy": 0
+        },
+        {
+          "sequence": 2,
+          "timestamp": "2026-11-25T00:51:15.471656+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "copy": 1
+        },
+        {
+          "sequence": 3,
+          "timestamp": "2026-11-25T00:51:15.473248+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "copy": 0
+        },
+        {
+          "sequence": 4,
+          "timestamp": "2026-11-25T00:51:15.475020+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "publisher_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "copy": 1
+        },
+        {
+          "sequence": 5,
+          "timestamp": "2026-11-25T00:51:15.477743+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 6,
+          "timestamp": "2026-11-25T00:51:15.605648+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "e7d609c0-0906-4733-ae86-3410ebfc9c02",
+          "error": null,
+          "elapsed_ms": 127.786
+        },
+        {
+          "sequence": 7,
+          "timestamp": "2026-11-25T00:51:15.822092+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_e12ebcc26b3241a6_op-000001/process",
+          "status": 200,
+          "attempt_id": "c76e66ab-0f88-4aaf-90b5-b6d2cb8d724b",
+          "error": null,
+          "elapsed_ms": 216.127
+        },
+        {
+          "sequence": 8,
+          "timestamp": "2026-11-25T00:51:15.822231+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "order_ref": "01a2102f-76fc-7a01-a307-8ceb144222b8",
+          "elapsed_ms": 344.455,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 9,
+          "timestamp": "2026-11-25T00:51:15.822513+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "order_ref": "01a2102f-76fc-7a01-a307-8ceb144222b8"
+        },
+        {
+          "sequence": 10,
+          "timestamp": "2026-11-25T00:51:15.826921+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 11,
+          "timestamp": "2026-11-25T00:51:15.937847+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "65778abc-26b7-4d77-9750-81502c550957",
+          "error": null,
+          "elapsed_ms": 110.771
+        },
+        {
+          "sequence": 12,
+          "timestamp": "2026-11-25T00:51:16.126203+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "method": "POST",
+          "path": "/operations/exp_c_e12ebcc26b3241a6_op-000001/retry",
+          "status": 200,
+          "attempt_id": "35640dd5-47d0-4737-95af-485c613477d6",
+          "error": null,
+          "elapsed_ms": 188.117
+        },
+        {
+          "sequence": 13,
+          "timestamp": "2026-11-25T00:51:16.126394+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "order_ref": "01a2102f-76fc-7a01-a307-8ceb144222b8",
+          "elapsed_ms": 299.4,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 14,
+          "timestamp": "2026-11-25T00:51:16.126697+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000001",
+          "order_ref": "01a2102f-76fc-7a01-a307-8ceb144222b8"
+        },
+        {
+          "sequence": 15,
+          "timestamp": "2026-11-25T00:51:16.133381+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "redelivered": false,
+          "experiment_copy": 0
+        },
+        {
+          "sequence": 16,
+          "timestamp": "2026-11-25T00:51:16.275271+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 201,
+          "attempt_id": "0391049a-d153-4323-b5d0-85c74f4005b2",
+          "error": null,
+          "elapsed_ms": 141.63
+        },
+        {
+          "sequence": 17,
+          "timestamp": "2026-11-25T00:51:16.515162+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_c_e12ebcc26b3241a6_op-000002/process",
+          "status": 200,
+          "attempt_id": "9f760bb8-7455-4aac-be33-c24ea2b0af59",
+          "error": null,
+          "elapsed_ms": 239.663
+        },
+        {
+          "sequence": 18,
+          "timestamp": "2026-11-25T00:51:16.515286+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "order_ref": "01a2102f-79a8-751e-8125-b2ad48922f03",
+          "elapsed_ms": 381.757,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 19,
+          "timestamp": "2026-11-25T00:51:16.515526+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "order_ref": "01a2102f-79a8-751e-8125-b2ad48922f03"
+        },
+        {
+          "sequence": 20,
+          "timestamp": "2026-11-25T00:51:16.519893+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "broker_delivery",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "redelivered": false,
+          "experiment_copy": 1
+        },
+        {
+          "sequence": 21,
+          "timestamp": "2026-11-25T00:51:16.630975+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "method": "POST",
+          "path": "/messages",
+          "status": 200,
+          "attempt_id": "50d66465-7d09-4c3c-a771-97dc740bc5f2",
+          "error": null,
+          "elapsed_ms": 110.984
+        },
+        {
+          "sequence": 22,
+          "timestamp": "2026-11-25T00:51:16.814226+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "http_exchange",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "method": "POST",
+          "path": "/operations/exp_c_e12ebcc26b3241a6_op-000002/retry",
+          "status": 200,
+          "attempt_id": "974e8aa0-6a2c-4baf-bb6f-b31f88133ea3",
+          "error": null,
+          "elapsed_ms": 183.07
+        },
+        {
+          "sequence": 23,
+          "timestamp": "2026-11-25T00:51:16.814291+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "order_confirmed",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "order_ref": "01a2102f-79a8-751e-8125-b2ad48922f03",
+          "elapsed_ms": 294.365,
+          "recovery_ms": null
+        },
+        {
+          "sequence": 24,
+          "timestamp": "2026-11-25T00:51:16.814401+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "consumer_ack",
+          "operation_id": "exp_c_e12ebcc26b3241a6_op-000002",
+          "order_ref": "01a2102f-79a8-751e-8125-b2ad48922f03"
+        },
+        {
+          "sequence": 25,
+          "timestamp": "2026-11-25T00:51:16.819433+00:00",
+          "run_id": "exp_c_e12ebcc26b3241a6",
+          "event": "broker_settled",
+          "rejected": 0,
+          "parked": 0
+        }
+      ]
+    }
+  ],
+  "resume": {
+    "run_id": "exp_resume_3c96a0d337ff",
+    "state": {
+      "schema_version": 1,
+      "operation_id": "exp_resume_3c96a0d337ff_op-1",
+      "run_id": "exp_resume_3c96a0d337ff",
+      "server_state": "COMPLETED",
+      "last_attempt_outcome": "REPLAYED",
+      "business_effect_count": 1,
+      "orders": [
+        {
+          "order_ref": "01a21032-de7d-7549-8add-c0fea9afbbc0",
+          "order_id": "resume-1",
+          "amount_minor": 1500,
+          "currency": "RUB",
+          "created_at": "2026-11-25T00:54:58.941Z"
+        }
+      ],
+      "received_at": "2026-11-25T00:54:58.740Z"
+    },
+    "events": [
+      {
+        "sequence": 1,
+        "timestamp": "2026-11-25T00:54:58.708283+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "http_exchange",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "method": "POST",
+        "path": "/messages",
+        "status": 201,
+        "attempt_id": "ac067e99-4b95-4527-a91a-0aba56c8fb9a",
+        "error": null,
+        "elapsed_ms": 134.43
+      },
+      {
+        "sequence": 2,
+        "timestamp": "2026-11-25T00:54:58.937975+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "http_exchange",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "method": "POST",
+        "path": "/operations/exp_resume_3c96a0d337ff_op-1/process",
+        "status": 200,
+        "attempt_id": "5ff407ed-d430-4306-b6b0-e6835b547318",
+        "error": null,
+        "elapsed_ms": 229.573
+      },
+      {
+        "sequence": 3,
+        "timestamp": "2026-11-25T00:54:58.938062+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "order_confirmed",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "order_ref": "01a21032-de7d-7549-8add-c0fea9afbbc0",
+        "elapsed_ms": 364.259,
+        "recovery_ms": null
+      },
+      {
+        "sequence": 4,
+        "timestamp": "2026-11-25T00:54:58.941835+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "channel_closed_before_ack"
+      },
+      {
+        "sequence": 5,
+        "timestamp": "2026-11-25T00:54:58.960742+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "broker_delivery",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "redelivered": true,
+        "experiment_copy": 0
+      },
+      {
+        "sequence": 6,
+        "timestamp": "2026-11-25T00:54:59.072005+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "http_exchange",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "method": "POST",
+        "path": "/messages",
+        "status": 200,
+        "attempt_id": "58cd9134-a932-45e3-a27f-577a2bff7e87",
+        "error": null,
+        "elapsed_ms": 111.146
+      },
+      {
+        "sequence": 7,
+        "timestamp": "2026-11-25T00:54:59.254253+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "http_exchange",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "method": "POST",
+        "path": "/operations/exp_resume_3c96a0d337ff_op-1/retry",
+        "status": 200,
+        "attempt_id": "9bccc855-036d-4a3e-92ae-d79748dc1719",
+        "error": null,
+        "elapsed_ms": 182.14
+      },
+      {
+        "sequence": 8,
+        "timestamp": "2026-11-25T00:54:59.254340+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "order_confirmed",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "order_ref": "01a21032-de7d-7549-8add-c0fea9afbbc0",
+        "elapsed_ms": 293.538,
+        "recovery_ms": null
+      },
+      {
+        "sequence": 9,
+        "timestamp": "2026-11-25T00:54:59.254580+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "consumer_ack",
+        "operation_id": "exp_resume_3c96a0d337ff_op-1",
+        "order_ref": "01a21032-de7d-7549-8add-c0fea9afbbc0"
+      },
+      {
+        "sequence": 10,
+        "timestamp": "2026-11-25T00:54:59.262189+00:00",
+        "run_id": "exp_resume_3c96a0d337ff",
+        "event": "worker_drained",
+        "handled": 1,
+        "rejected": 0
+      }
+    ]
+  }
+}
