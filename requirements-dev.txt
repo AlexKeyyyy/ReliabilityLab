@@ -1,2 +1,4 @@
 # Local tooling for xbsl-validate; application runs on 1C:Element.
 PyYAML==6.0.3
+
+-r requirements-adapter.txt
